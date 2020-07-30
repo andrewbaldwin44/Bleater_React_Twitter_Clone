@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from "styled-components";
 import GlobalStyles from './GlobalStyles';
@@ -9,30 +9,38 @@ import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';
 import Profile from './Profile';
+import { CurrentUserContext } from './CurrentUserContext';
 
 function App() {
+  const { status } = useContext(CurrentUserContext);
+
   return (
     <Main>
       <Router>
         <GlobalStyles />
-        <Sidebar />
-        <Switch>
-          <Route exact path='/' >
-            <HomeFeed />
-          </Route>
-          <Route exact path='/notifications' >
-            <Notifications />
-          </Route>
-          <Route exact path='/bookmarks' >
-            <Bookmarks />
-          </Route>
-          <Route exact path='/tweet/:tweetID' >
-            <TweetDetails />
-          </Route>
-          <Route exact path='/users/:profileID' >
-            <Profile />
-          </Route>
-        </Switch>
+        {status === 'idle' ? (
+          <>
+            <Sidebar />
+            <Switch>
+              <Route exact path='/' >
+                <HomeFeed />
+              </Route>
+              <Route exact path='/notifications' >
+                <Notifications />
+              </Route>
+              <Route exact path='/bookmarks' >
+                <Bookmarks />
+              </Route>
+              <Route exact path='/tweet/:tweetID' >
+                <TweetDetails />
+              </Route>
+              <Route exact path='/users/:profileID' >
+                <Profile />
+              </Route>
+            </Switch>
+          </>
+        ) : (<div>Loading</div>)
+        }
       </Router>
     </Main>
   );

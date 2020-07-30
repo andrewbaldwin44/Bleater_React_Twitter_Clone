@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { RiHome7Line } from "react-icons/ri";
 import { BsPerson, BsBell } from "react-icons/bs";
 import { FiBookmark } from "react-icons/fi";
 import { COLORS } from "../constants";
+import { CurrentUserContext } from './CurrentUserContext';
 import { ReactComponent as CatLogo } from  '../assets/logo.svg';
 import styled from "styled-components";
 
 const { primary } = COLORS;
 
 function Sidebar() {
+  const { currentUser } = useContext(CurrentUserContext);
+  console.log(currentUser)
+
   return (
     <NavBar>
       <li>
@@ -21,7 +25,7 @@ function Sidebar() {
       </NavItem>
       <NavItem>
         <BsPerson className="icon" />
-        <StyledLink exact to="/profile/:profileID" activeClassName="active">
+        <StyledLink exact to={`/profile/${currentUser.handle}`} activeClassName="active">
           Profile
         </StyledLink>
       </NavItem>
