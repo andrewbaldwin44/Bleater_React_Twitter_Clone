@@ -21,7 +21,7 @@ const Header = () => {
   );
 };
 
-const Wrapper = styled.header`
+export const Wrapper = styled.header`
   display: flex;
 `;
 
@@ -31,14 +31,14 @@ const Name = styled.div`
   align-items: center;
 `;
 
-const DisplayName = styled.span`
+export const DisplayName = styled.span`
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
   padding-right: 10px;
 `;
 
-const Username = styled.span`
+export const Username = styled.span`
   font-size: 15px;
   line-height: 20px;
   padding-right: 10px;
