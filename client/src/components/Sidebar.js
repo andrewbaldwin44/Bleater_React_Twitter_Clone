@@ -87,6 +87,7 @@ const StyledLink = styled(NavLink)`
 const StyledCatLogo = styled(CatLogo)`
   height: 60px;
   width: 60px;
+  transform: scale(-1, 1);
 `;
 
 export default Sidebar;

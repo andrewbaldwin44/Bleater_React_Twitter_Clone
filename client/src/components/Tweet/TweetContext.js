@@ -5,7 +5,8 @@ export const TweetContext = createContext(null);
 
 export function TweetProvider({
     id, children, displayName, handle, avatarSrc, tweetContent,
-    timestamp, isTweetLiked, isTweetRetweeted, numberLikes, numberRetweets
+    timestamp, isTweetLiked, isTweetRetweeted, numberLikes, numberRetweets,
+    tweetMedia
   }) {
 
   const [likes, setLikes] = useState(numberLikes);
@@ -23,7 +24,6 @@ export function TweetProvider({
     setIsRetweeted(!isRetweeted);
   }
 
-  console.log(id)
   return (
     <TweetContext.Provider
       value={{
@@ -38,7 +38,8 @@ export function TweetProvider({
         handleToggleLiked,
         handleToggleRetweet,
         avatarSrc,
-        date: moment(timestamp).format("LT - MMM Do, YYYY")
+        date: moment(timestamp).format("LT - MMM Do, YYYY"),
+        tweetMedia
       }}
     >
       {children}

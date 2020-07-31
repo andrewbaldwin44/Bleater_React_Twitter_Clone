@@ -37,12 +37,16 @@ function HomeFeed() {
             timestamp
           } = tweetsById[tweetID];
 
-          console.log(avatarSrc)
+          const media = tweetsById[tweetID].media[0];
+
+          let url = media !== undefined;
+          if (media) url = media.url;
+
+          console.log(url)
 
           return (
-            <TweetContainer to={`/tweet/${tweetID}`} >
+            <TweetContainer to={`/tweet/${tweetID}`} key={tweetID} >
               <TweetProvider
-                key={tweetID}
                 id={tweetID}
                 displayName={displayName}
                 handle={handle}
@@ -53,6 +57,7 @@ function HomeFeed() {
                 isTweetRetweeted={isRetweeted}
                 numberLikes={numLikes}
                 numberRetweets={numRetweets}
+                tweetMedia={url}
               >
                   <Tweet />
               </TweetProvider>

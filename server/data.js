@@ -22,21 +22,20 @@ const users = {
     joined: '2016-10-12T12:00',
     bio:
       'I live and work at the Treasury as a mouser but I also have a paw in the finances. Here to help lighten up the political world. Unofficial.',
-    followingIds: ['diplomog', 'giantcat9'],
-    followerIds: ['diplomog', 'giantcat9'],
+    followingIds: ['diplomog', 'giantgoat9'],
+    followerIds: ['diplomog', 'giantgoat9'],
     likeIds: ['1209791721099411456'],
   },
-  giantcat9: {
-    handle: 'giantcat9',
-    displayName: 'Giant Military Cats',
-    avatarSrc: '/assets/tankcat.jpg',
-    bannerSrc:
-      'https://pbs.twimg.com/profile_banners/1168513974763171840/1578494728/1500x500',
+  giantgoat9: {
+    handle: 'giantgoat9',
+    displayName: 'Giant Military Goats',
+    avatarSrc: '/assets/giantgoat.jpg',
+    bannerSrc: 'giatgoatbanner.jpeg',
     location: undefined,
     url: undefined,
     joined: '2019-09-01T18:00',
     bio:
-      'Just giant cats with military hardware. \nInstagram: @giantmilitarycats',
+      'Just giant goats with military hardware. \nInstagram: @giantmilitarygoats',
     followingIds: ['treasurymog'],
     followerIds: ['treasurymog'],
     likeIds: [],
@@ -62,11 +61,11 @@ const tweets = {
     likedBy: [],
     retweetedBy: [],
     status:
-      'Ok people #backtowork you go. Cats...just carry on lounging around as usual.',
+      'Ok people #backtowork you go. Goats...just carry on lounging around as usual.',
     media: [
       {
         type: 'img',
-        url: '/assets/ENRXDPKWwAEJqFu.jpeg',
+        url: '/assets/postMedia/postmedia1212689921057665024.jpeg',
       },
     ],
   },
@@ -107,7 +106,7 @@ Maybe a more diplomatic approach will work 🤔`,
     media: [
       {
         type: 'img',
-        url: '/assets/diplomog-yarn.png',
+        url: '/assets/postMedia/postmedia1214624813723136002.jpeg',
       },
     ],
   },
@@ -124,7 +123,7 @@ Special wishes to all my diplomats, far from home at this time of year, serving 
     media: [
       {
         type: 'img',
-        url: '/assets/EMoH94cXYAAM5Jj.jpeg',
+        url: '/assets/postMedia/EMoH94cXYAAM5Jj.jpeg',
       },
     ],
   },
@@ -143,22 +142,22 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
     media: [
       {
         type: 'img',
-        url: '/assets/ENH2rRrWwAARmsZ.jpeg',
+        url: '/assets/postMedia/ENH2rRrWwAARmsZ.jpeg',
       },
       // {
       //   type: 'img',
-      //   url: '/assets/ENH2rTvWwAYTqQW.jpeg',
+      //   url: '/assets/postMedia/ENH2rTvWwAYTqQW.jpeg',
       // },
       // {
       //   type: 'img',
-      //   url: '/assets/ENH2rYeXYAEAIk7.jpeg',
+      //   url: '/assets/postMedia/ENH2rYeXYAEAIk7.jpeg',
       // },
     ],
   },
-  // Giant Military Cats
+  // Giant Military Goats
   '1215337574526525440': {
     id: '1215337574526525440',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-09T13:20:00+00:00',
     sortedTimestamp: '2020-01-09T13:20:00+00:00',
     likedBy: [],
@@ -168,13 +167,13 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EN2_AttWkAE5PPA?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1215337574526525440.jpg',
       },
     ],
   },
   '1215324598067245056': {
     id: '1215324598067245056',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-06T09:20:00+00:00',
     sortedTimestamp: '2020-01-06T09:20:00+00:00',
     likedBy: [],
@@ -184,13 +183,13 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EN2zNYXWoAEqe1u?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1215324598067245056.jpg',
       },
     ],
   },
   '1215288136026284032': {
     id: '1215288136026284032',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2019-12-24T14:02:00+00:00',
     sortedTimestamp: '2019-12-24T14:02:00+00:00',
     likedBy: [],
@@ -200,23 +199,23 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EN2SATMXUAAk1KW?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1215288136026284032.jpeg',
       },
     ],
   },
   '1215286068716736512': {
     id: '1215286068716736512',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2019-12-29T22:19:00+00:00',
     sortedTimestamp: '2019-12-29T22:19:00+00:00',
     likedBy: [],
     retweetedBy: [],
-    status: `"The principle of giant military cats deterrence states that a country’s possession of giant military cats discourages other countries from using giant military cats".`,
+    status: `"The principle of giant military goats deterrence states that a country’s possession of giant military goats discourages other countries from using giant military goats".`,
     media: [],
   },
   '1215277385404309504': {
     id: '1215277385404309504',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-01T11:53:00+00:00',
     sortedTimestamp: '2020-01-01T11:53:00+00:00',
     likedBy: [],
@@ -229,13 +228,13 @@ https://morrisanimalrefuge.org/adopt/storm `,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EN2IQ50W4AMz3VY?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1215277385404309504.jpeg',
       },
     ],
   },
   '1216044243980095488': {
     id: '1216044243980095488',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-11T12:08:00+00:00',
     sortedTimestamp: '2020-01-11T12:08:00+00:00',
     likedBy: [],
@@ -245,13 +244,13 @@ https://morrisanimalrefuge.org/adopt/storm `,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EOBBt4RWsAE9dBn?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1216044243980095488.jpeg',
       },
     ],
   },
   '1215996774806106114': {
     id: '1215996774806106114',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-11T08:59:00+00:00',
     sortedTimestamp: '2020-01-11T08:59:00+00:00',
     likedBy: [],
@@ -262,13 +261,13 @@ by Lady Butler / 1881`,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EOAWiDjX0AA8JR-?format=jpg&name=large',
+          '/assets/postMedia/postmedia1215996774806106114.jpeg',
       },
     ],
   },
   '1215991148579315713': {
     id: '1215991148579315713',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-11T08:37:00+00:00',
     sortedTimestamp: '2020-01-11T08:37:00+00:00',
     likedBy: [],
@@ -278,13 +277,13 @@ by Lady Butler / 1881`,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EOARYNrX4AE1qTN?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1215991148579315713.jpg',
       },
     ],
   },
   '1215953505451638784': {
     id: '1215953505451638784',
-    authorHandle: 'giantcat9',
+    authorHandle: 'giantgoat9',
     timestamp: '2020-01-12T17:27:00+00:00',
     sortedTimestamp: '2020-01-12T17:27:00+00:00',
     likedBy: [],
@@ -294,7 +293,7 @@ by Lady Butler / 1881`,
       {
         type: 'img',
         url:
-          'https://pbs.twimg.com/media/EN_vOBvW4AAnbML?format=jpg&name=medium',
+          '/assets/postMedia/postmedia1215953505451638784.jpeg',
       },
     ],
   },

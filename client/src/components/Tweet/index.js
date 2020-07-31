@@ -10,13 +10,21 @@ const Tweet = () => {
   const {
     tweetID,
     tweetContents,
-    date
+    date,
+    tweetMedia
   } = useContext(TweetContext);
+
+  console.log(tweetMedia)
 
   return (
     <Wrapper >
       <Header />
       <TweetContents>{tweetContents}</TweetContents>
+      {tweetMedia && (
+        <TweetMediaContainer>
+          <TweetMedia src={tweetMedia} />
+        </TweetMediaContainer>
+      )}
       <Timestamp>{date}</Timestamp>
       <Divider />
       <Stat />
@@ -39,6 +47,18 @@ const Wrapper = styled.div`
 const TweetContents = styled.div`
   font-size: 22px;
   padding: 16px 0;
+`;
+
+const TweetMediaContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+`;
+
+const TweetMedia = styled.img`
+  max-width: 100%;
+  border-radius: 20px;
 `;
 
 const Timestamp = styled.div`
