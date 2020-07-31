@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Tweet from './Tweet/index';
+import useFetch from '../hooks/useFetch.hook';
 import { TweetProvider } from './Tweet/TweetContext';
 import styled from "styled-components";
 
@@ -7,14 +8,10 @@ function HomeFeed() {
   const [homeFeed, setHomeFeed] = React.useState(null);
   const [status, setStatus] = React.useState("loading");
 
-  useEffect(() => {
-    fetch('/api/me/home-feed')
-        .then(response => response.json())
-        .then(data => {
-          setHomeFeed(data);
-          setStatus('idle');
-        });
-  }, []);
+  useFetch('/api/me/home-feed', data => {
+    setHomeFeed(data);
+    setStatus('idle');
+  });
 
   if (status === 'idle') {
     const { tweetIds, tweetsById } = homeFeed;
@@ -37,7 +34,9 @@ function HomeFeed() {
             numLikes,
             numRetweets,
             timestamp
-          } = tweetsById[tweetID]
+          } = tweetsById[tweetID];
+
+          console.log(avatarSrc)
 
           return (
             <TweetProvider

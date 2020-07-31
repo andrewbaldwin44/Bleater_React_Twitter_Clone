@@ -29,8 +29,7 @@ const users = {
   giantcat9: {
     handle: 'giantcat9',
     displayName: 'Giant Military Cats',
-    avatarSrc:
-      '/assets/tankcat.jpg',
+    avatarSrc: '/assets/tankcat.jpg',
     bannerSrc:
       'https://pbs.twimg.com/profile_banners/1168513974763171840/1578494728/1500x500',
     location: undefined,

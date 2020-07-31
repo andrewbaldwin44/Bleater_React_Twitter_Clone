@@ -20,24 +20,26 @@ function Sidebar() {
         <StyledCatLogo />
       </li>
       <NavItem>
-        <RiHome7Line className="icon" />
-        <StyledLink exact to="/" activeClassName="active">Home</StyledLink>
+        <StyledLink exact to="/" activeClassName="active">
+          <RiHome7Line className="icon" />
+          Home
+        </StyledLink>
       </NavItem>
       <NavItem>
-        <BsPerson className="icon" />
         <StyledLink exact to={`/profile/${currentUser.handle}`} activeClassName="active">
+          <BsPerson className="icon" />
           Profile
         </StyledLink>
       </NavItem>
       <NavItem>
-        <BsBell className="icon" />
         <StyledLink exact to="/notifications" activeClassName="active">
+          <BsBell className="icon" />
           Notifications
         </StyledLink>
       </NavItem>
       <NavItem>
-        <FiBookmark className="icon" />
         <StyledLink exact to="/bookmarks" activeClassName="active">
+          <FiBookmark className="icon" />
           Bookmarks
         </StyledLink>
       </NavItem>
@@ -51,20 +53,11 @@ const NavBar = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   height: 40vh;
-  padding-right: 40px;
+  margin-right: 50px;
 `;
 
 const NavItem = styled.li`
-  display: flex;
-  align-items: center;
-  height: 50px;
-  padding: 5px 10px;
-  border-radius: 20px;
-
-  .icon {
-    font-size: 24px;
-    margin-right: 20px;
-  }
+  border-radius: 25px;
 
   .active {
     color: blue;
@@ -77,9 +70,18 @@ const NavItem = styled.li`
 
 
 const StyledLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 5px 10px;
   text-decoration: none;
   color: black;
   font-weight: bold;
+
+  .icon {
+    font-size: 26px;
+    margin-right: 20px;
+  }
 `;
 
 const StyledCatLogo = styled(CatLogo)`

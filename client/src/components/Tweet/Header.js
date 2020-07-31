@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { TweetContext } from './TweetContext';
 
 const Header = () => {
-  const { displayName, username, avatarSrc } = useContext(TweetContext)
+  const { displayName, username, avatarSrc } = useContext(TweetContext);
+
 
   return (
     <Wrapper>
-      <Avatar src={avatarSrc} />
+      <Avatar src={require('../../assets/tankcat.jpg')} />
       <Name>
         <DisplayName>{displayName}</DisplayName>
         <Username>@{username}</Username>

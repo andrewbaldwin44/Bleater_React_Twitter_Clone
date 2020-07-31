@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 import moment from 'moment';
-import TankCat from '../../assets/tankcat.jpg'
 
 export const TweetContext = createContext(null);
 
@@ -13,8 +12,6 @@ export function TweetProvider({
   const [retweets, setRetweets] = useState(numberRetweets);
   const [isLiked, setIsLiked] = useState(isTweetLiked);
   const [isRetweeted, setIsRetweeted] = useState(isTweetRetweeted);
-
-  avatarSrc = TankCat;
 
   const handleToggleLiked = () => {
     isLiked ? setLikes(likes - 1) : setLikes(likes + 1);

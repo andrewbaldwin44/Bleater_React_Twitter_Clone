@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
@@ -33,6 +34,7 @@ const Wrapper = styled.div`
   text-align: left;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
+  cursor: pointer;
 `;
 
 const TweetContents = styled.div`

@@ -48,8 +48,8 @@ function App() {
 
 const Main = styled.main`
   display: flex;
-  width: 80%;
-  margin: 50px auto;
+  margin: 50px 250px;
 `;
+
 
 export default App;
