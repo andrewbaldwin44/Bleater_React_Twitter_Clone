@@ -4,8 +4,8 @@ import moment from 'moment';
 export const TweetContext = createContext(null);
 
 export function TweetProvider({
-    children, displayName, handle, avatarSrc, tweetContent, timestamp,
-    isTweetLiked, isTweetRetweeted, numberLikes, numberRetweets
+    id, children, displayName, handle, avatarSrc, tweetContent,
+    timestamp, isTweetLiked, isTweetRetweeted, numberLikes, numberRetweets
   }) {
 
   const [likes, setLikes] = useState(numberLikes);
@@ -23,10 +23,11 @@ export function TweetProvider({
     setIsRetweeted(!isRetweeted);
   }
 
-
+  console.log(id)
   return (
     <TweetContext.Provider
       value={{
+        tweetID: id,
         tweetContents: tweetContent,
         displayName: `${displayName} ✨`,
         username: handle,

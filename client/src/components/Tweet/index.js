@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
@@ -9,12 +8,13 @@ import { TweetContext } from './TweetContext';
 
 const Tweet = () => {
   const {
+    tweetID,
     tweetContents,
     date
   } = useContext(TweetContext);
 
   return (
-    <Wrapper>
+    <Wrapper >
       <Header />
       <TweetContents>{tweetContents}</TweetContents>
       <Timestamp>{date}</Timestamp>
@@ -34,7 +34,6 @@ const Wrapper = styled.div`
   text-align: left;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
-  cursor: pointer;
 `;
 
 const TweetContents = styled.div`

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Tweet from './Tweet/index';
 import useFetch from '../hooks/useFetch.hook';
 import { TweetProvider } from './Tweet/TweetContext';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function HomeFeed() {
@@ -39,20 +40,23 @@ function HomeFeed() {
           console.log(avatarSrc)
 
           return (
-            <TweetProvider
-              key={tweetID}
-              displayName={displayName}
-              handle={handle}
-              avatarSrc={avatarSrc}
-              tweetContent={status}
-              timestamp={timestamp}
-              isTweetLiked={isLiked}
-              isTweetRetweeted={isRetweeted}
-              numberLikes={numLikes}
-              numberRetweets={numRetweets}
-            >
-              <Tweet />
-            </TweetProvider>
+            <TweetContainer to={`/tweet/${tweetID}`} >
+              <TweetProvider
+                key={tweetID}
+                id={tweetID}
+                displayName={displayName}
+                handle={handle}
+                avatarSrc={avatarSrc}
+                tweetContent={status}
+                timestamp={timestamp}
+                isTweetLiked={isLiked}
+                isTweetRetweeted={isRetweeted}
+                numberLikes={numLikes}
+                numberRetweets={numRetweets}
+              >
+                  <Tweet />
+              </TweetProvider>
+            </TweetContainer>
           )
         })}
       </Tweets>
@@ -64,7 +68,12 @@ function HomeFeed() {
 }
 
 const Tweets = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
+const TweetContainer = styled(Link)`
+  cursor: pointer;
 `;
 
 export default HomeFeed;
