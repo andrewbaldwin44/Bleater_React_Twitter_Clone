@@ -8,6 +8,7 @@ export function CurrentUserProvider({ children }) {
   const [status, setStatus] = React.useState("loading");
 
   useFetch('/api/me/profile', data => {
+    console.log(data)
     setCurrentUser(data.profile);
     setStatus('idle');
   });
