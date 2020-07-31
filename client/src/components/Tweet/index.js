@@ -10,7 +10,7 @@ const Tweet = () => {
   const {
     tweetID,
     tweetContents,
-    date,
+    avatarSrc,
     tweetMedia
   } = useContext(TweetContext);
 
@@ -18,30 +18,43 @@ const Tweet = () => {
 
   return (
     <Wrapper >
-      <Header />
-      <TweetContents>{tweetContents}</TweetContents>
-      {tweetMedia && (
-        <TweetMediaContainer>
-          <TweetMedia src={tweetMedia} />
-        </TweetMediaContainer>
-      )}
-      <Timestamp>{date}</Timestamp>
-      <Divider />
-      <Stat />
-      <Divider />
-      <ActionBar />
-      <Divider />
+      <Avatar src={avatarSrc} />
+      <Contents>
+        <Header />
+        <TweetContents>{tweetContents}</TweetContents>
+        {tweetMedia && (
+          <TweetMediaContainer>
+            <TweetMedia src={tweetMedia} />
+          </TweetMediaContainer>
+        )}
+        <Divider />
+        <Stat />
+        <Divider />
+        <ActionBar />
+        <Divider />
+      </Contents>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  background: white;
-  width: 580px;
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
   padding: 16px;
-  text-align: left;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
+`;
+
+const Contents = styled.div`
+
+`;
+
+const Avatar = styled.img`
+  min-width: 48px;
+  height: 48px;
+  margin-right: 50px;
+  border-radius: 50%;
 `;
 
 const TweetContents = styled.div`
@@ -59,12 +72,6 @@ const TweetMediaContainer = styled.div`
 const TweetMedia = styled.img`
   max-width: 100%;
   border-radius: 20px;
-`;
-
-const Timestamp = styled.div`
-  color: rgb(101, 119, 134);
-  font-size: 16px;
-  padding-bottom: 16px;
 `;
 
 const Divider = styled.div`

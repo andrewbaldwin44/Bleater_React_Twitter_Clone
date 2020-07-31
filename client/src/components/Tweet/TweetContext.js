@@ -38,7 +38,7 @@ export function TweetProvider({
         handleToggleLiked,
         handleToggleRetweet,
         avatarSrc,
-        date: moment(timestamp).format("LT - MMM Do, YYYY"),
+        date: moment(timestamp).format("• MMM Do"), // ("LT - MMM Do, YYYY")
         tweetMedia
       }}
     >

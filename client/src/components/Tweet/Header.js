@@ -3,15 +3,19 @@ import styled from "styled-components";
 import { TweetContext } from './TweetContext';
 
 const Header = () => {
-  const { displayName, username, avatarSrc } = useContext(TweetContext);
+  const {
+    displayName,
+    username,
+    date,
+  } = useContext(TweetContext);
 
 
   return (
     <Wrapper>
-      <Avatar src={avatarSrc} />
       <Name>
         <DisplayName>{displayName}</DisplayName>
         <Username>@{username}</Username>
+        <Timestamp>{date}</Timestamp>
       </Name>
     </Wrapper>
   );
@@ -21,30 +25,29 @@ const Wrapper = styled.header`
   display: flex;
 `;
 
-const Avatar = styled.img`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-`;
-
 const Name = styled.div`
-  flex: 1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 0px 16px;
+  align-items: center;
 `;
 
-const DisplayName = styled.div`
-  font-size: 15px;
+const DisplayName = styled.span`
+  font-size: 16px;
   line-height: 20px;
   font-weight: bold;
+  padding-right: 10px;
 `;
 
-const Username = styled.div`
+const Username = styled.span`
   font-size: 15px;
   line-height: 20px;
+  padding-right: 10px;
   color: rgb(101, 119, 134);
+`;
+
+const Timestamp = styled.div`
+  color: rgb(101, 119, 134);
+  font-size: 15px;
 `;
 
 export default Header;

@@ -48,7 +48,7 @@ function Sidebar() {
 }
 
 const NavBar = styled.nav`
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,7 +60,7 @@ const NavItem = styled.li`
   border-radius: 25px;
 
   .active {
-    color: blue;
+    color: #CC0000;
   }
 
   &:hover {

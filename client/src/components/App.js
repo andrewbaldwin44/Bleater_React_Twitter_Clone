@@ -21,23 +21,25 @@ function App() {
         {status === 'idle' ? (
           <>
             <Sidebar />
-            <Switch>
-              <Route exact path='/' >
-                <HomeFeed />
-              </Route>
-              <Route exact path='/notifications' >
-                <Notifications />
-              </Route>
-              <Route exact path='/bookmarks' >
-                <Bookmarks />
-              </Route>
-              <Route exact path='/tweet/:tweetID' >
-                <TweetDetails />
-              </Route>
-              <Route exact path='/users/:profileID' >
-                <Profile />
-              </Route>
-            </Switch>
+            <PageContent>
+              <Switch>
+                <Route exact path='/' >
+                  <HomeFeed />
+                </Route>
+                <Route exact path='/notifications' >
+                  <Notifications />
+                </Route>
+                <Route exact path='/bookmarks' >
+                  <Bookmarks />
+                </Route>
+                <Route exact path='/tweet/:tweetID' >
+                  <TweetDetails />
+                </Route>
+                <Route exact path='/users/:profileID' >
+                  <Profile />
+                </Route>
+              </Switch>
+            </PageContent>
           </>
         ) : (<div>Loading</div>)
         }
@@ -48,7 +50,11 @@ function App() {
 
 const Main = styled.main`
   display: flex;
-  margin: 50px 250px;
+  margin: 50px 200px;
+`;
+
+const PageContent = styled.div`
+  margin-left: 200px;
 `;
 
 
