@@ -12,6 +12,7 @@ import { Username } from "./Tweet/Header";
 import { TweetMediaContainer } from "./Tweet/index";
 import { TweetMedia } from "./Tweet/index";
 import { TweetProvider } from './Tweet/TweetContext';
+import Spinner from './Spinner';
 
 import styled from 'styled-components';
 
@@ -84,7 +85,7 @@ function TweetDetails() {
   }
   else {
     return (
-      <div>Loading</div>
+      <Spinner />
     )
   }
 }

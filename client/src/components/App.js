@@ -9,6 +9,7 @@ import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';
 import Profile from './Profile';
+import Spinner from './Spinner';
 import { CurrentUserContext } from './CurrentUserContext';
 
 function App() {
@@ -41,7 +42,11 @@ function App() {
               </Switch>
             </PageContent>
           </>
-        ) : (<div>Loading</div>)
+      ) : (
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
+      )
         }
       </Router>
     </Main>
@@ -57,5 +62,10 @@ const PageContent = styled.div`
   margin-left: 200px;
 `;
 
+const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 200px;
+`;
 
 export default App;

@@ -3,6 +3,7 @@ import Tweet from './Tweet/index';
 import useFetch from '../hooks/useFetch.hook';
 import { TweetProvider } from './Tweet/TweetContext';
 import { Link } from "react-router-dom";
+import Spinner from './Spinner';
 import styled from "styled-components";
 
 function HomeFeed() {
@@ -68,7 +69,11 @@ function HomeFeed() {
     )
   }
   else {
-    return (<div>Loading</div>)
+    return (
+      <SpinnerContainer>
+        <Spinner />
+      </SpinnerContainer>
+    )
   }
 }
 
@@ -79,6 +84,12 @@ const Tweets = styled.div`
 
 const TweetContainer = styled(Link)`
   cursor: pointer;
+`;
+
+const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 650px;
 `;
 
 export default HomeFeed;
