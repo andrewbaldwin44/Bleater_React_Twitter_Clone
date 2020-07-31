@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Tweet from './Tweet/index';
 import useFetch from '../hooks/useFetch.hook';
 import { TweetProvider } from './Tweet/TweetContext';

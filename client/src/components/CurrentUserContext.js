@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from 'react';
+import React, { createContext } from 'react';
 import useFetch from '../hooks/useFetch.hook';
 
 export const CurrentUserContext = createContext(null);

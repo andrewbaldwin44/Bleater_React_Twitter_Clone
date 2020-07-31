@@ -7,7 +7,6 @@ import { TweetContext } from './TweetContext';
 
 const Tweet = () => {
   const {
-    tweetID,
     tweetContents,
     avatarSrc,
     tweetMedia

@@ -4,7 +4,6 @@ import moment from 'moment';
 import useFetch from '../hooks/useFetch.hook';
 import { useParams } from 'react-router-dom';
 
-import Header from "./Tweet/Header";
 import Footer from "./Tweet/Footer";
 import { TweetContents } from "./Tweet/index";
 import { Wrapper as UserInfo } from "./Tweet/Header";
