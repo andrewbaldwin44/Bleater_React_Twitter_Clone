@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Avatar src={require('../../assets/tankcat.jpg')} />
+      <Avatar src={avatarSrc} />
       <Name>
         <DisplayName>{displayName}</DisplayName>
         <Username>@{username}</Username>
