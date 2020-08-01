@@ -86,10 +86,11 @@ const TweetContainer = styled(Link)`
   cursor: pointer;
 `;
 
-const SpinnerContainer = styled.div`
+export const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 650px;
+  margin-top: 40px;
+  width: 100%;
 `;
 
 export default HomeFeed;

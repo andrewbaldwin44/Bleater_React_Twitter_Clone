@@ -1,3 +1,6 @@
 export const COLORS = {
-  primary: "#ff4444",
+  primaryDarkRed: "#CC0000",
+  redHighlight: "#ff4444",
+  borderColor: "rgb(230, 236, 240)",
+  lightText: "rgb(101, 119, 134)",
 };

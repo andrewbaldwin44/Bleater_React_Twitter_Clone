@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import ActionBar from "./ActionBar";
 import Stat from "./Stat";
+import { COLORS } from "../../constants";
+
+const { borderColor } = COLORS;
 
 function Footer() {
   return (
@@ -18,7 +21,7 @@ function Footer() {
 
 const Divider = styled.div`
   height: 1px;
-  background: rgb(230, 236, 240);
+  background: ${borderColor};
 `;
 
 export default Footer;

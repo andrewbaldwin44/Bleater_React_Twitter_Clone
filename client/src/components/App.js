@@ -11,6 +11,9 @@ import TweetDetails from './TweetDetails';
 import Profile from './Profile';
 import Spinner from './Spinner';
 import { CurrentUserContext } from './CurrentUserContext';
+import { COLORS } from "../constants";
+
+const { borderColor } = COLORS;
 
 function App() {
   const { status } = useContext(CurrentUserContext);
@@ -55,17 +58,25 @@ function App() {
 
 const Main = styled.main`
   display: flex;
-  margin: 50px 200px;
+  margin-left: 5vw;
 `;
 
 const PageContent = styled.div`
-  margin-left: 200px;
+  margin-left: 18vw;
+  padding-left: 30px;
+  padding-right: 50px;
+  border-left: 1px solid ${borderColor};
+  border-right: 1px solid ${borderColor};
+  min-height: 100vh;
+  height: 100%;
+  width: 52vw;
 `;
 
 const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 200px;
+  margin-top: 40px;
 `;
 
 export default App;

@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { TweetContext } from './TweetContext';
+import { COLORS } from "../../constants";
+
+const { lightText } = COLORS;
 
 const Header = () => {
   const {
@@ -42,11 +45,11 @@ export const Username = styled.span`
   font-size: 15px;
   line-height: 20px;
   padding-right: 10px;
-  color: rgb(101, 119, 134);
+  color: ${lightText};
 `;
 
 const Timestamp = styled.div`
-  color: rgb(101, 119, 134);
+  color: ${lightText};
   font-size: 15px;
 `;
 

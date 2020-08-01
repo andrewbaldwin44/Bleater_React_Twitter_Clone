@@ -32,13 +32,14 @@ const Tweet = () => {
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 650px;
+  width: 100%;
   padding: 16px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
 `;
 
 export const Avatar = styled.img`
+  max-width: 48px;
   min-width: 48px;
   height: 48px;
   margin-right: 50px;

@@ -8,7 +8,7 @@ import { CurrentUserContext } from './CurrentUserContext';
 import { ReactComponent as CatLogo } from  '../assets/logo.svg';
 import styled from "styled-components";
 
-const { primary } = COLORS;
+const { primaryDarkRed, redHighlight } = COLORS;
 
 function Sidebar() {
   const { currentUser } = useContext(CurrentUserContext);
@@ -53,18 +53,19 @@ const NavBar = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   height: 40vh;
-  margin-right: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
 `;
 
 const NavItem = styled.li`
   border-radius: 25px;
 
   .active {
-    color: #CC0000;
+    color: ${primaryDarkRed};
   }
 
   &:hover {
-    background-color: ${primary};
+    background-color: ${redHighlight};
   }
 `;
 
@@ -73,10 +74,11 @@ const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   height: 50px;
-  padding: 5px 10px;
+  padding: 5px 20px;
   text-decoration: none;
   color: black;
   font-weight: bold;
+  font-size: 1.4em;
 
   .icon {
     font-size: 26px;
@@ -87,6 +89,7 @@ const StyledLink = styled(NavLink)`
 const StyledCatLogo = styled(CatLogo)`
   height: 60px;
   width: 60px;
+  margin-left: 20px;
   transform: scale(-1, 1);
 `;
 

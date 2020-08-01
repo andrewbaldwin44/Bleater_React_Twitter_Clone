@@ -13,8 +13,12 @@ import { TweetMediaContainer } from "./Tweet/index";
 import { TweetMedia } from "./Tweet/index";
 import { TweetProvider } from './Tweet/TweetContext';
 import Spinner from './Spinner';
+import { SpinnerContainer } from './HomeFeed';
+import { COLORS } from "../constants";
 
 import styled from 'styled-components';
+
+const { lightText } = COLORS;
 
 function TweetDetails() {
   const { tweetID } = useParams();
@@ -85,7 +89,9 @@ function TweetDetails() {
   }
   else {
     return (
-      <Spinner />
+      <SpinnerContainer>
+        <Spinner />
+      </SpinnerContainer>
     )
   }
 }
@@ -93,7 +99,6 @@ function TweetDetails() {
 const Wrapper = styled.div`
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
-  width: 700px;
   padding: 16px;
 `;
 
@@ -111,7 +116,7 @@ export const Name = styled.div`
 `;
 
 const Timestamp = styled.div`
-  color: rgb(101, 119, 134);
+  color: ${lightText};
   padding-bottom: 10px;
   padding-left: 5px;
 `;
