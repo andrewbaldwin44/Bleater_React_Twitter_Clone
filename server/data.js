@@ -30,7 +30,7 @@ const users = {
     handle: 'giantgoat9',
     displayName: 'Giant Military Goats',
     avatarSrc: '/assets/giantgoat.jpg',
-    bannerSrc: 'giatgoatbanner.jpeg',
+    bannerSrc: '/assets/giantgoatbanner.jpg',
     location: undefined,
     url: undefined,
     joined: '2019-09-01T18:00',

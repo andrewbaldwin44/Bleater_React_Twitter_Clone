@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import useFetch from '../../hooks/useFetch.hook';
 import { TweetContext } from './TweetContext';
 import { COLORS } from "../../constants";
 
@@ -12,11 +14,10 @@ const Header = () => {
     date,
   } = useContext(TweetContext);
 
-
   return (
     <Wrapper>
       <Name>
-        <DisplayName>{displayName}</DisplayName>
+        <DisplayName to={`/users/${username}`}>{displayName}</DisplayName>
         <Username>@{username}</Username>
         <Timestamp>{date}</Timestamp>
       </Name>
@@ -34,7 +35,7 @@ const Name = styled.div`
   align-items: center;
 `;
 
-export const DisplayName = styled.span`
+export const DisplayName = styled(Link)`
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;

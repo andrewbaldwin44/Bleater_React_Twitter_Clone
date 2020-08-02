@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Tweet from './Tweet/index';
 import useFetch from '../hooks/useFetch.hook';
 import { TweetProvider } from './Tweet/TweetContext';
@@ -8,8 +8,8 @@ import Spinner from './Spinner';
 import styled from "styled-components";
 
 function HomeFeed() {
-  const [homeFeed, setHomeFeed] = React.useState(null);
-  const [status, setStatus] = React.useState("loading");
+  const [homeFeed, setHomeFeed] = useState(null);
+  const [status, setStatus] = useState("loading");
 
   const { setHeader } = useContext(HeadbarContext);
   setHeader('Home');

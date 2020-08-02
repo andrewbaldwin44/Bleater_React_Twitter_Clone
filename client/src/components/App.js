@@ -10,7 +10,7 @@ import HomeFeed from './HomeFeed';
 import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 import Spinner from './Spinner';
 import { CurrentUserContext } from './CurrentUserContext';
 import { COLORS, PAGE_DIMENSIONS } from "../constants";

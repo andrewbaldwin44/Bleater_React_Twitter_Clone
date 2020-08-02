@@ -6,5 +6,7 @@ export const COLORS = {
 };
 
 export const PAGE_DIMENSIONS = {
-  mainWidth: "52vw"
+  mainWidth: "52vw",
+  headerBottomMargin: "15px",
+  textOffset: "25px"
 };

@@ -5,7 +5,7 @@ import { HeadbarContext } from "./HeadbarContext";
 import { COLORS, PAGE_DIMENSIONS } from "../../constants";
 
 const { borderColor } = COLORS;
-const { mainWidth } = PAGE_DIMENSIONS;
+const { mainWidth, headerBottomMargin } = PAGE_DIMENSIONS;
 
 function Headbar() {
   const { header } = useContext(HeadbarContext);
@@ -29,7 +29,7 @@ const HeadbarNav = styled.nav`
   height: 70px;
   width: calc(${mainWidth} - 2px);
   padding: 0 25px;
-  margin-bottom: 15px;
+  margin-bottom: ${headerBottomMargin};
   border-bottom: 1px solid ${borderColor};
   background-color: white;
   z-index: 100;
