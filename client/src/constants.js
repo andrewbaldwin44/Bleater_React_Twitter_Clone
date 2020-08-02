@@ -4,3 +4,7 @@ export const COLORS = {
   borderColor: "rgb(230, 236, 240)",
   lightText: "rgb(101, 119, 134)",
 };
+
+export const PAGE_DIMENSIONS = {
+  mainWidth: "52vw"
+};

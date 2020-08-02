@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import moment from 'moment';
 
 import useFetch from '../hooks/useFetch.hook';
@@ -12,6 +12,7 @@ import { Username } from "./Tweet/Header";
 import { TweetMediaContainer } from "./Tweet/index";
 import { TweetMedia } from "./Tweet/index";
 import { TweetProvider } from './Tweet/TweetContext';
+import { HeadbarContext } from "./Headbar/HeadbarContext";
 import Spinner from './Spinner';
 import { SpinnerContainer } from './HomeFeed';
 import { COLORS } from "../constants";
@@ -25,6 +26,9 @@ function TweetDetails() {
 
   const [tweet, setTweet] = React.useState(null);
   const [fetchStatus, setFetchStatus] = React.useState("loading");
+
+  const { setHeader } = useContext(HeadbarContext);
+  setHeader('Tweet');
 
   useFetch(`/api/tweet/${tweetID}`, data => {
     console.log(data);

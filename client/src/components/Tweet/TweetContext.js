@@ -29,7 +29,7 @@ export function TweetProvider({
       value={{
         tweetID: id,
         tweetContents: tweetContent,
-        displayName: `${displayName} ✨`,
+        displayName: displayName,
         username: handle,
         isLikedByCurrentUser: isLiked,
         isRetweetedByCurrentUser: isRetweeted,

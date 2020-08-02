@@ -53,8 +53,7 @@ const NavBar = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   height: 40vh;
-  padding-right: 50px;
-  padding-top: 20px;
+  margin-top: 30px;
 `;
 
 const NavItem = styled.li`

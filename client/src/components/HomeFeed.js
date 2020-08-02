@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Tweet from './Tweet/index';
 import useFetch from '../hooks/useFetch.hook';
 import { TweetProvider } from './Tweet/TweetContext';
+import { HeadbarContext } from "./Headbar/HeadbarContext";
 import { Link } from "react-router-dom";
 import Spinner from './Spinner';
 import styled from "styled-components";
@@ -9,6 +10,9 @@ import styled from "styled-components";
 function HomeFeed() {
   const [homeFeed, setHomeFeed] = React.useState(null);
   const [status, setStatus] = React.useState("loading");
+
+  const { setHeader } = useContext(HeadbarContext);
+  setHeader('Home');
 
   useFetch('/api/me/home-feed', data => {
     setHomeFeed(data);
@@ -89,7 +93,7 @@ const TweetContainer = styled(Link)`
 export const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 100px;
   width: 100%;
 `;
 

@@ -4,6 +4,8 @@ import styled from "styled-components";
 import GlobalStyles from './GlobalStyles';
 
 import Sidebar from './Sidebar';
+import Headbar from "./Headbar/Headbar";
+import { HeadbarProvider } from "./Headbar/HeadbarContext";
 import HomeFeed from './HomeFeed';
 import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
@@ -11,9 +13,10 @@ import TweetDetails from './TweetDetails';
 import Profile from './Profile';
 import Spinner from './Spinner';
 import { CurrentUserContext } from './CurrentUserContext';
-import { COLORS } from "../constants";
+import { COLORS, PAGE_DIMENSIONS } from "../constants";
 
 const { borderColor } = COLORS;
+const { mainWidth } = PAGE_DIMENSIONS;
 
 function App() {
   const { status } = useContext(CurrentUserContext);
@@ -25,25 +28,30 @@ function App() {
         {status === 'idle' ? (
           <>
             <Sidebar />
-            <PageContent>
-              <Switch>
-                <Route exact path='/' >
-                  <HomeFeed />
-                </Route>
-                <Route exact path='/notifications' >
-                  <Notifications />
-                </Route>
-                <Route exact path='/bookmarks' >
-                  <Bookmarks />
-                </Route>
-                <Route exact path='/tweet/:tweetID' >
-                  <TweetDetails />
-                </Route>
-                <Route exact path='/users/:profileID' >
-                  <Profile />
-                </Route>
-              </Switch>
-            </PageContent>
+            <HeadbarProvider>
+              <PageContainer>
+                <Headbar />
+                <PageContent>
+                  <Switch>
+                    <Route exact path='/' >
+                      <HomeFeed />
+                    </Route>
+                    <Route exact path='/notifications' >
+                      <Notifications />
+                    </Route>
+                    <Route exact path='/bookmarks' >
+                      <Bookmarks />
+                    </Route>
+                    <Route exact path='/tweet/:tweetID' >
+                      <TweetDetails />
+                    </Route>
+                    <Route exact path='/users/:profileID' >
+                      <Profile />
+                    </Route>
+                  </Switch>
+                </PageContent>
+              </PageContainer>
+              </HeadbarProvider>
           </>
       ) : (
         <SpinnerContainer>
@@ -61,15 +69,17 @@ const Main = styled.main`
   margin-left: 5vw;
 `;
 
-const PageContent = styled.div`
+const PageContainer = styled.div`
   margin-left: 18vw;
-  padding-left: 30px;
-  padding-right: 50px;
   border-left: 1px solid ${borderColor};
   border-right: 1px solid ${borderColor};
   min-height: 100vh;
   height: 100%;
-  width: 52vw;
+  width: ${mainWidth};
+`;
+
+const PageContent = styled.div`
+  margin-top: 80px;
 `;
 
 const SpinnerContainer = styled.div`
