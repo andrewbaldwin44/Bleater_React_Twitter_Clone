@@ -32,7 +32,8 @@ function Profile() {
       bannerSrc,
       avatarSrc,
       displayName,
-      handle
+      handle,
+      isFollowingYou
     } = currentProfile;
 
     return (
@@ -46,7 +47,12 @@ function Profile() {
         </Header>
         <Name>
           <h2>{displayName}</h2>
-          <Handle>@{handle}</Handle>
+          <Details>
+            <Handle>@{handle}</Handle>
+            {isFollowingYou && (
+              <Label>Follows You</Label>
+            )}
+          </Details>
         </Name>
         <Content />
         <NavBar />
@@ -90,6 +96,23 @@ const Name = styled.div`
 const Handle = styled.h3`
   font-weight: 200;
   color: ${lightText};
+`;
+
+const Details = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 220px;
+`;
+
+const Label = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #eeeeee;
 `;
 
 export default Profile;

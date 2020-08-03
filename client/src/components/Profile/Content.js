@@ -19,7 +19,6 @@ function Content() {
     location,
     url,
     joinedDate,
-    isFollowingYou
   } = useContext(ProfileContext);
 
   return (
@@ -44,7 +43,6 @@ function Content() {
         </div>
       </Information>
       <Stat />
-      <Light>{!isFollowingYou && 'Not'} Following you</Light>
     </ContentContainer>
   )
 }
@@ -77,10 +75,6 @@ const Information = styled.div`
     font-weight: bold;
     font-size: 20px;
   }
-`;
-
-const Light = styled.span`
-  color: ${lightText};
 `;
 
 export default Content
