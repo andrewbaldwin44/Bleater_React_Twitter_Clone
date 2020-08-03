@@ -28,7 +28,7 @@ function TweetDetails({ setHeader }) {
   });
 
   useEffect(() => {
-    setHeader('Tweet');
+    setHeader('Bleat');
   });
 
   if (status === 'idle') {

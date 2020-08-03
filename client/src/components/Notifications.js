@@ -5,7 +5,6 @@ import { PAGE_DIMENSIONS } from "../constants";
 
 const { textOffset } = PAGE_DIMENSIONS;
 
-
 function Notifications({ setHeader }) {
   useEffect(() => {
     setHeader('Notifications');

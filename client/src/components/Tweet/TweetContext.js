@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import usePut from "../../hooks/usePut.hook";
 
 export const TweetContext = createContext(null);
 
@@ -27,14 +28,29 @@ export function TweetProvider({ children, id, tweet, date }) {
   const [isLiked, setIsLiked] = useState(isTweetLiked);
   const [isRetweeted, setIsRetweeted] = useState(isTweetRetweeted);
 
+  const tweetLikedBody = {
+    method: 'PUT',
+    body: JSON.stringify({ like: isLiked }),
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    }
+  }
+
+  usePut(
+    `/api/tweet/${id}/like`,
+    tweetLikedBody,
+    isLiked
+  );
+
   const handleToggleLiked = event => {
-    event.stopPropagation()
+    event.stopPropagation();
+
     isLiked ? setLikes(likes - 1) : setLikes(likes + 1);
     setIsLiked(!isLiked);
   }
 
   const handleToggleRetweet = event => {
-    event.stopPropagation()
+    event.stopPropagation();
     isRetweeted ? setRetweets(retweets - 1) : setRetweets(retweets + 1);
     setIsRetweeted(!isRetweeted);
   }
