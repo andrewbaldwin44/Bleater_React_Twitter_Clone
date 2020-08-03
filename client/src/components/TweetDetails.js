@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 import useFetch from '../hooks/useFetch.hook';

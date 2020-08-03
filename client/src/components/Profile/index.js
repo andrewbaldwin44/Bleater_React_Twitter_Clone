@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import useFetch from '../../hooks/useFetch.hook';
 import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 
@@ -16,7 +15,7 @@ import { PAGE_DIMENSIONS, COLORS } from "../../constants";
 const { lightText } = COLORS;
 const { headerBottomMargin, textOffset } = PAGE_DIMENSIONS;
 
-function Profile() {
+function Profile({ setHeader }) {
   const { profileID } = useParams();
 
   const [currentProfile, setCurrentProfile] = useState(null);
@@ -41,6 +40,8 @@ function Profile() {
       handle,
       isFollowingYou
     } = currentProfile;
+
+    setHeader(displayName);
 
     return (
       <ProfileProvider
