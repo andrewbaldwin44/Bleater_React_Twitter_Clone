@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import moment from 'moment';
 
 import useFetch from '../hooks/useFetch.hook';
@@ -8,7 +8,6 @@ import DetailedHeader from "./Tweet/DetailedHeader";
 import Body from "./Tweet/Body";
 import DetailedFooter from "./Tweet/DetailedFooter";
 import { TweetProvider } from './Tweet/TweetContext';
-import { HeadbarContext } from "./Headbar/HeadbarContext";
 import Spinner from './Spinner';
 import { SpinnerContainer } from './HomeFeed';
 import { COLORS } from "../constants";
@@ -17,14 +16,11 @@ import styled from 'styled-components';
 
 const { lightText } = COLORS;
 
-function TweetDetails() {
+function TweetDetails({ setHeader }) {
   const { tweetID } = useParams();
 
   const [tweet, setTweet] = React.useState(null);
   const [fetchStatus, setFetchStatus] = React.useState("loading");
-
-  const { setHeader } = useContext(HeadbarContext);
-  setHeader('Tweet');
 
   useFetch(`/api/tweet/${tweetID}`, data => {
     setTweet(data.tweet);
@@ -32,6 +28,7 @@ function TweetDetails() {
   });
 
   if (fetchStatus === 'idle') {
+    setHeader('Tweet');
     const { timestamp } = tweet;
 
     const date = moment(timestamp).format("LT - MMM Do, YYYY");
