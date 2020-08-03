@@ -41,10 +41,6 @@ function TweetDetails() {
     const { status, timestamp } = tweet;
 
     const date = moment(timestamp).format("LT - MMM Do, YYYY");
-    const media = tweet.media[0];
-
-    let url = media !== undefined;
-    if (media) url = media.url;
 
     return (
       <Wrapper>

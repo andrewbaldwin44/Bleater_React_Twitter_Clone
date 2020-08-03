@@ -1,15 +1,22 @@
 import React, { useContext, useState } from 'react';
-import Tweet from './Tweet/index';
+import { useHistory } from "react-router-dom";
 import useFetch from '../hooks/useFetch.hook';
+import moment from 'moment';
+import styled from "styled-components";
+
+import Tweet from './Tweet/index';
 import { TweetProvider } from './Tweet/TweetContext';
 import { HeadbarContext } from "./Headbar/HeadbarContext";
-import { Link } from "react-router-dom";
 import Spinner from './Spinner';
-import styled from "styled-components";
 
 function HomeFeed() {
   const [homeFeed, setHomeFeed] = useState(null);
   const [status, setStatus] = useState("loading");
+  const history = useHistory();
+
+  const sendToTweet = tweetID => {
+    history.push(`/tweet/${tweetID}`);
+  }
 
   const { setHeader } = useContext(HeadbarContext);
   setHeader('Home');
@@ -25,11 +32,16 @@ function HomeFeed() {
     return (
       <Tweets>
         {tweetIds.map(tweetID => {
+          const tweet = tweetsById[tweetID];
+          const { timestamp } = tweetsById[tweetID];
+          const date = moment(timestamp).format("• MMM Do");
+
           return (
-            <TweetContainer to={`/tweet/${tweetID}`} key={tweetID} >
+            <TweetContainer onClick={() => sendToTweet(tweetID)} key={tweetID} >
               <TweetProvider
                 id={tweetID}
-                tweet={tweetsById[tweetID]}
+                tweet={tweet}
+                date={date}
               >
                   <Tweet />
               </TweetProvider>
@@ -53,7 +65,7 @@ const Tweets = styled.div`
   flex-direction: column;
 `;
 
-const TweetContainer = styled(Link)`
+const TweetContainer = styled.div`
   cursor: pointer;
 `;
 

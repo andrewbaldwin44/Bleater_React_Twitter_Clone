@@ -10,13 +10,12 @@ import Spinner from "./Spinner";
 import { SpinnerContainer } from "./HomeFeed";
 
 function UserFeed() {
-  const { tweetID } = useParams();
-  console.log(tweetID)
+  const { profileID } = useParams();
 
   const [userFeed, setUserFeed] = useState(null);
   const [status, setStatus] = useState("loading");
 
-  useFetch(`/api/${tweetID}/feed`, data => {
+  useFetch(`/api/${profileID}/feed`, data => {
     setUserFeed(data);
     setStatus('idle');
   });

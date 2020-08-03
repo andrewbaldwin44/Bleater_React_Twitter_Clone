@@ -23,7 +23,8 @@ function Body() {
 
 export const TweetContents = styled.div`
   font-size: 22px;
-  padding: 16px 0;
+  padding-top: 5px;
+  padding-bottom: 10px;
 `;
 
 export const TweetMediaContainer = styled.div`

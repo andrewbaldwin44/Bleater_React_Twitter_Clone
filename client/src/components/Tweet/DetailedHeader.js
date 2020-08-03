@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { TweetContext } from './TweetContext';
 
 import { Wrapper as UserInfo } from "./Header";
-import { DisplayName } from "./Header";
-import { Username } from "./Header";
+import { Username, DisplayName } from "./Header";
 
 function DetailedHeader() {
   const {
@@ -18,7 +17,12 @@ function DetailedHeader() {
     <UserInfo>
       <Avatar src={avatarSrc} />
       <Name>
-        <DisplayName>{displayName}</DisplayName>
+        <DisplayName
+          to={`/users/${handle}`}
+          className='displayName'
+        >
+          {displayName}
+        </DisplayName>
         <Username>@{handle}</Username>
       </Name>
     </UserInfo>
@@ -36,6 +40,14 @@ export const Name = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .displayName {
+    font-size: 20px;
+  }
 `;
+
+// const DisplayName = styled.h3`
+//   font-weight: bold;
+// `;
 
 export default DetailedHeader;

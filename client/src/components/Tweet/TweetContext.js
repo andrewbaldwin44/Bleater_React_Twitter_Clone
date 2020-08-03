@@ -1,9 +1,8 @@
 import React, { createContext, useState } from "react";
-import moment from 'moment';
 
 export const TweetContext = createContext(null);
 
-export function TweetProvider({ children, id, tweet }) {
+export function TweetProvider({ children, id, tweet, date }) {
   const {
     displayName,
     handle,
@@ -15,8 +14,7 @@ export function TweetProvider({ children, id, tweet }) {
     isLiked: isTweetLiked,
     isRetweeted: isTweetRetweeted,
     numLikes,
-    numRetweets,
-    timestamp
+    numRetweets
   } = tweet;
 
   const media = tweet.media[0];
@@ -55,7 +53,7 @@ export function TweetProvider({ children, id, tweet }) {
         handleToggleLiked,
         handleToggleRetweet,
         avatarSrc,
-        date: moment(timestamp).format("• MMM Do"),
+        date,
         tweetMedia
       }}
     >
