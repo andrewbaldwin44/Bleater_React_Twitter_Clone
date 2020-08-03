@@ -31,7 +31,6 @@ function TweetDetails() {
   setHeader('Tweet');
 
   useFetch(`/api/tweet/${tweetID}`, data => {
-    console.log(data);
     setTweet(data.tweet);
     setFetchStatus('idle');
   });

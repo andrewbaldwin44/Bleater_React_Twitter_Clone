@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import useFetch from '../../hooks/useFetch.hook';
 import { TweetContext } from './TweetContext';
 import { COLORS } from "../../constants";
 

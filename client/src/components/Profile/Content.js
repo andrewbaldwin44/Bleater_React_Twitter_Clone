@@ -10,7 +10,7 @@ import { ProfileContext } from "./ProfileContext";
 
 import { PAGE_DIMENSIONS, COLORS } from "../../constants";
 
-const { lightText, borderColor } = COLORS;
+const { lightText } = COLORS;
 const { textOffset } = PAGE_DIMENSIONS;
 
 function Content() {
@@ -21,8 +21,6 @@ function Content() {
     joinedDate,
     isFollowingYou
   } = useContext(ProfileContext);
-
-  console.log(url)
 
   return (
     <ContentContainer>
@@ -57,7 +55,6 @@ const ContentContainer = styled.div`
   justify-content: space-evenly;
   height: 150px;
   padding-left: ${textOffset};
-  border-bottom: 1px solid ${borderColor};
 `;
 
 const Information = styled.div`

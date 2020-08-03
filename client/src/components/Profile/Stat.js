@@ -11,7 +11,6 @@ function Stat() {
   const {
     numFollowing,
     numFollowers,
-    numLikes
   } = useContext(ProfileContext);
 
   return (

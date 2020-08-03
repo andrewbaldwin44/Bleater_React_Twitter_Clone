@@ -8,7 +8,6 @@ export function CurrentUserProvider({ children }) {
   const [status, setStatus] = useState("loading");
 
   useFetch('/api/me/profile', data => {
-    console.log(data)
     setCurrentUser(data.profile);
     setStatus('idle');
   });

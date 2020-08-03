@@ -11,7 +11,10 @@ import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';
 import Profile from './Profile/Profile';
+import UserFeed from "./UserFeed";
+
 import Spinner from './Spinner';
+
 import { CurrentUserContext } from './CurrentUserContext';
 import { COLORS, PAGE_DIMENSIONS } from "../constants";
 
@@ -47,6 +50,10 @@ function App() {
                     </Route>
                     <Route exact path='/users/:profileID' >
                       <Profile />
+                    </Route>
+                    <Route exact path='/users/:profileID/feed' >
+                      <Profile />
+                      <UserFeed />
                     </Route>
                   </Switch>
                 </PageContent>

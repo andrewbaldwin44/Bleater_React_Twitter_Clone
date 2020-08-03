@@ -22,8 +22,6 @@ function HomeFeed() {
   if (status === 'idle') {
     const { tweetIds, tweetsById } = homeFeed;
 
-    console.log(tweetsById)
-
     return (
       <Tweets>
         {tweetIds.map(tweetID => {
@@ -46,8 +44,6 @@ function HomeFeed() {
 
           let url = media !== undefined;
           if (media) url = media.url;
-
-          console.log(url)
 
           return (
             <TweetContainer to={`/tweet/${tweetID}`} key={tweetID} >

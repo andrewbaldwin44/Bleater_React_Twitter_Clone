@@ -12,8 +12,7 @@ const { primaryDarkRed, redHighlight } = COLORS;
 
 function Sidebar() {
   const { currentUser } = useContext(CurrentUserContext);
-  console.log(currentUser)
-
+  
   return (
     <NavBar>
       <li>

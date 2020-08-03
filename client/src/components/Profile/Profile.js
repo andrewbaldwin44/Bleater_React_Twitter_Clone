@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import useFetch from '../../hooks/useFetch.hook';
 import { useParams } from 'react-router-dom';
 import styled from "styled-components";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { ProfileProvider } from "./ProfileContext";
 import ActionBar from "./ActionBar";
 import Content from "./Content";
+import NavBar from "./NavBar";
 
 import Spinner from '../Spinner';
 import { SpinnerContainer } from '../HomeFeed';
@@ -22,7 +23,6 @@ function Profile() {
   const [status, setStatus] = useState("loading");
 
   useFetch(`/api/${profileID}/profile`, data => {
-    console.log(data);
     setCurrentProfile(data.profile);
     setStatus('idle');
   });
@@ -49,6 +49,7 @@ function Profile() {
           <Handle>@{handle}</Handle>
         </Name>
         <Content />
+        <NavBar />
       </ProfileProvider>
     )
   }
