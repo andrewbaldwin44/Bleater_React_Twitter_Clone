@@ -11,15 +11,13 @@ function Footer() {
   return (
     <>
       <Divider />
-      <Stat />
-      <Divider />
       <ActionBar />
       <Divider />
     </>
   )
 }
 
-const Divider = styled.div`
+export const Divider = styled.div`
   height: 1px;
   background: ${borderColor};
 `;

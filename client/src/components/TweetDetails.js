@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import DetailedHeader from "./Tweet/DetailedHeader";
 import Body from "./Tweet/Body";
-import Footer from "./Tweet/Footer";
+import DetailedFooter from "./Tweet/DetailedFooter";
 import { TweetProvider } from './Tweet/TweetContext';
 import { HeadbarContext } from "./Headbar/HeadbarContext";
 import Spinner from './Spinner';
@@ -51,7 +51,7 @@ function TweetDetails() {
           <DetailedHeader />
           <Body />
           <Timestamp>{date}</Timestamp>
-          <Footer />
+          <DetailedFooter />
         </TweetProvider>
       </Wrapper>
     );

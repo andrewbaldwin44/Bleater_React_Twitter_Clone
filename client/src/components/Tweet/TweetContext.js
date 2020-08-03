@@ -28,13 +28,13 @@ export function TweetProvider({ children, id, tweet, date }) {
   const [isRetweeted, setIsRetweeted] = useState(isTweetRetweeted);
 
   const handleToggleLiked = event => {
-    event.preventDefault()
+    event.stopPropagation()
     isLiked ? setLikes(likes - 1) : setLikes(likes + 1);
     setIsLiked(!isLiked);
   }
 
   const handleToggleRetweet = event => {
-    event.preventDefault()
+    event.stopPropagation()
     isRetweeted ? setRetweets(retweets - 1) : setRetweets(retweets + 1);
     setIsRetweeted(!isRetweeted);
   }

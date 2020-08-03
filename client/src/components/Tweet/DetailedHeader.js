@@ -46,8 +46,4 @@ export const Name = styled.div`
   }
 `;
 
-// const DisplayName = styled.h3`
-//   font-weight: bold;
-// `;
-
 export default DetailedHeader;
