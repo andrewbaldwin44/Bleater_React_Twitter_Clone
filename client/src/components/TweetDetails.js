@@ -32,13 +32,7 @@ function TweetDetails() {
   });
 
   if (fetchStatus === 'idle') {
-    const {
-      displayName,
-      handle,
-      avatarSrc
-    } = tweet.author;
-
-    const { status, timestamp } = tweet;
+    const { timestamp } = tweet;
 
     const date = moment(timestamp).format("LT - MMM Do, YYYY");
 

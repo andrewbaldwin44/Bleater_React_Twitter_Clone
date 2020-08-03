@@ -7,11 +7,7 @@ import Footer from "./Footer";
 import { TweetContext } from './TweetContext';
 
 const Tweet = () => {
-  const {
-    tweetContents,
-    avatarSrc,
-    tweetMedia
-  } = useContext(TweetContext);
+  const { avatarSrc } = useContext(TweetContext);
 
   return (
     <Wrapper >

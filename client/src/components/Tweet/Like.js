@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Action from "./Action";
-import TweetActionIcon from "./TweetActionIcon";
 
 import LikeButton from "../LikeButton";
 import { TweetContext } from './TweetContext';

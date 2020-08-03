@@ -1,19 +1,17 @@
 import React from "react";
-import styled from "styled-components";
 
-import ActionBar from "./ActionBar";
+import DetailedActionBar from "./DetailedActionBar";
 import Stat from "./Stat";
 import { Divider } from "./Footer";
-import { COLORS } from "../../constants";
 
 function DetailedFooter() {
   return (
     <>
-    <Divider />
-    <Stat />
-    <Divider />
-    <ActionBar />
-    <Divider />
+      <Divider />
+      <Stat />
+      <Divider />
+      <DetailedActionBar />
+      <Divider />
     </>
   )
 }

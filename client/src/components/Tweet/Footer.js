@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import ActionBar from "./ActionBar";
-import Stat from "./Stat";
 import { COLORS } from "../../constants";
 
 const { borderColor } = COLORS;

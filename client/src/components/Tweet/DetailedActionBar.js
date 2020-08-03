@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 
 import Reply from "./Reply";
 import Retweet from "./Retweet";
 import Like from "./Like";
 import Share from "./Share";
+import { Wrapper } from "./ActionBar";
 
-const ActionBar = () => {
+const DetailedActionBar = () => {
   return (
     <Wrapper>
       <Reply />
@@ -17,11 +17,11 @@ const ActionBar = () => {
   );
 };
 
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 48px;
-`;
+// export const Wrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   height: 48px;
+// `;
 
-export default ActionBar;
+export default DetailedActionBar;

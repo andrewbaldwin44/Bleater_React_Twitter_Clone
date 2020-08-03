@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Action from "./Action";
 import TweetActionIcon from "./TweetActionIcon";
 
