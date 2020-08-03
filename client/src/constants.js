@@ -9,3 +9,7 @@ export const PAGE_DIMENSIONS = {
   mainWidth: "52vw",
   textOffset: "25px"
 };
+
+export const RULES = {
+  characterMax: 280
+}

@@ -1,26 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from "styled-components";
 
 import { Wrapper, Avatar } from "../Tweet/index";
-import { COLORS } from "../../constants";
+import { COLORS, RULES } from "../../constants";
 
 import { CurrentUserContext } from "../CurrentUserContext";
 
 const { primaryDarkRed, borderColor, lightText } = COLORS;
+const { characterMax } = RULES;
 
 function WriteTweet() {
   const { currentUser } = useContext(CurrentUserContext);
+  const [remainingCharacters, setRemainingCharacters] = useState(characterMax);
 
   const {
     avatarSrc
   } = currentUser;
 
+  let remaining
+
+  const handleInput = event => {
+    const characterAmount = event.target.value.length;
+    setRemainingCharacters(characterMax - characterAmount);
+  }
+
   return (
     <TextBoxContainer >
       <Avatar src={avatarSrc} />
-      <TextBox placeholder="What's happening?" >
+      <TextBox placeholder="What's happening?" onInput={handleInput} >
       </TextBox>
-      <CharacterCount>280</CharacterCount>
+      <CharacterCount>{remainingCharacters}</CharacterCount>
       <Post>Bleat</Post>
     </TextBoxContainer>
   )
