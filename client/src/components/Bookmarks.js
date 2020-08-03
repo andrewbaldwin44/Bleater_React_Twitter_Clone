@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
-function Bookmarks() {
+import { PAGE_DIMENSIONS } from "../constants";
+
+const { textOffset } = PAGE_DIMENSIONS;
+
+function Bookmarks({ setHeader }) {
+  useEffect(() => {
+    setHeader('Bookmarks');
+  });
+
   return (
-    <div>Bookmarks!</div>
+    <Wrapper>You have no bookmarks!</Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  margin-left: ${textOffset};
+`;
 
 export default Bookmarks;

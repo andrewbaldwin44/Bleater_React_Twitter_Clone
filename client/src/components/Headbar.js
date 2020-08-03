@@ -29,7 +29,7 @@ const HeadbarNav = styled.nav`
   margin-bottom: ${headerBottomMargin};
   border-bottom: 1px solid ${borderColor};
   background-color: white;
-  z-index: 100;
+  z-index: 1000;
 
   h2 {
     display: inline;
