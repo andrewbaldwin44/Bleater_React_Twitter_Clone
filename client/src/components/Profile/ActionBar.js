@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   height: 48px;
-  width: 50%;
+  width: 350px;
   margin: 5px;
 
   .icon {

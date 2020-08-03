@@ -52,7 +52,7 @@ function App() {
                     <Profile setHeader={setHeader} />
                   </Route>
                   <Route exact path='/users/:profileID/feed' >
-                    <Profile />
+                    <Profile setHeader={setHeader} />
                     <UserFeed />
                   </Route>
                 </Switch>

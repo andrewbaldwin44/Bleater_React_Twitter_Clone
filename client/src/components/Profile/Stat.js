@@ -30,7 +30,7 @@ function Stat() {
 const StatBar = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 200px;
 `;
 
 const Bold = styled.span`
