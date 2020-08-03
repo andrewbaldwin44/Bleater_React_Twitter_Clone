@@ -15,7 +15,7 @@ const ActionBar = () => {
 
   return (
     <Wrapper>
-      <Action color="rgb(27, 149, 224)" size={40}>
+      <Action color="rgb(27, 149, 224)" size={40} onClick={event => event.preventDefault()}>
         <TweetActionIcon kind="reply" />
       </Action>
       <Action color="rgb(23, 191, 99)" size={40} onClick={handleToggleRetweet}>
@@ -31,7 +31,7 @@ const ActionBar = () => {
       >
         <LikeButton />
       </Action>
-      <Action color="rgb(27, 149, 224)" size={40}>
+      <Action color="rgb(27, 149, 224)" size={40} onClick={event => event.preventDefault()}>
         <TweetActionIcon kind="share" />
       </Action>
     </Wrapper>

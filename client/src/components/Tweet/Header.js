@@ -39,6 +39,10 @@ export const DisplayName = styled(Link)`
   line-height: 20px;
   font-weight: bold;
   padding-right: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Username = styled.span`

@@ -25,40 +25,11 @@ function HomeFeed() {
     return (
       <Tweets>
         {tweetIds.map(tweetID => {
-          const {
-            displayName,
-            handle,
-            avatarSrc
-          } = tweetsById[tweetID].author;
-
-          const {
-            status,
-            isLiked,
-            isRetweeted,
-            numLikes,
-            numRetweets,
-            timestamp
-          } = tweetsById[tweetID];
-
-          const media = tweetsById[tweetID].media[0];
-
-          let url = media !== undefined;
-          if (media) url = media.url;
-
           return (
             <TweetContainer to={`/tweet/${tweetID}`} key={tweetID} >
               <TweetProvider
                 id={tweetID}
-                displayName={displayName}
-                handle={handle}
-                avatarSrc={avatarSrc}
-                tweetContent={status}
-                timestamp={timestamp}
-                isTweetLiked={isLiked}
-                isTweetRetweeted={isRetweeted}
-                numberLikes={numLikes}
-                numberRetweets={numRetweets}
-                tweetMedia={url}
+                tweet={tweetsById[tweetID]}
               >
                   <Tweet />
               </TweetProvider>

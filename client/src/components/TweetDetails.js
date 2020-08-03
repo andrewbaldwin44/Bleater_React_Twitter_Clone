@@ -42,14 +42,7 @@ function TweetDetails() {
       avatarSrc
     } = tweet.author;
 
-    const {
-      status,
-      isLiked,
-      isRetweeted,
-      numLikes,
-      numRetweets,
-      timestamp
-    } = tweet;
+    const { status, timestamp } = tweet;
 
     const date = moment(timestamp).format("LT - MMM Do, YYYY");
     const media = tweet.media[0];
@@ -61,15 +54,7 @@ function TweetDetails() {
       <Wrapper>
         <TweetProvider
           key={tweetID}
-          displayName={displayName}
-          handle={handle}
-          avatarSrc={avatarSrc}
-          tweetContent={status}
-          timestamp={timestamp}
-          istweetLiked={isLiked}
-          istweetRetweeted={isRetweeted}
-          numberLikes={numLikes}
-          numberRetweets={numRetweets}
+          tweet={tweet}
         >
           <UserInfo>
             <Avatar src={avatarSrc} />
