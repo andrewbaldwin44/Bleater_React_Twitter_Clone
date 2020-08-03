@@ -8,7 +8,7 @@ function Stat() {
 
   return (
     <StatsContainer>
-      <Bold>{retweets} <Light>Retweets</Light></Bold>
+      <Bold>{retweets} <Light>Rebleats</Light></Bold>
       <Bold>{likes} <Light>Likes</Light></Bold>
     </StatsContainer>
   )

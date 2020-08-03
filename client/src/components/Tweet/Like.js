@@ -4,10 +4,8 @@ import Action from "./Action";
 import LikeButton from "../LikeButton";
 import { TweetContext } from './TweetContext';
 
-function Retweet() {
-  const {
-    handleToggleLiked,
-  } = useContext(TweetContext);
+function Like() {
+  const { handleToggleLiked } = useContext(TweetContext);
 
   return (
     <Action
@@ -20,4 +18,4 @@ function Retweet() {
   )
 }
 
-export default Retweet;
+export default Like;

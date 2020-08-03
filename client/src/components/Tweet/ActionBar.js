@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
 const CounterContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 20px;
+  width: 55px;
 `;
 
 const Counter = styled.span`
