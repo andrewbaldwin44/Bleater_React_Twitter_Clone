@@ -8,7 +8,7 @@ import Content from "./Content";
 import NavBar from "./NavBar";
 
 import Spinner from '../Spinner';
-import { SpinnerContainer } from '../HomeFeed';
+import { SpinnerContainer } from '../HomePage/HomeFeed';
 
 import { PAGE_DIMENSIONS, COLORS } from "../../constants";
 

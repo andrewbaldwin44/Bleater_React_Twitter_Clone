@@ -7,7 +7,7 @@ import styled from "styled-components";
 import Tweet from './Tweet/index';
 import { TweetProvider } from './Tweet/TweetContext';
 import Spinner from "./Spinner";
-import { SpinnerContainer } from "./HomeFeed";
+import { SpinnerContainer } from "./HomePage/HomeFeed";
 
 function UserFeed() {
   const { profileID } = useParams();

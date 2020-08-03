@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { COLORS, PAGE_DIMENSIONS } from "../constants";
 
 const { borderColor } = COLORS;
-const { mainWidth, headerBottomMargin } = PAGE_DIMENSIONS;
+const { mainWidth } = PAGE_DIMENSIONS;
 
 function Headbar({ header }) {
   return (
@@ -26,7 +26,6 @@ const HeadbarNav = styled.nav`
   height: 70px;
   width: calc(${mainWidth} - 2px);
   padding: 0 25px;
-  margin-bottom: ${headerBottomMargin};
   border-bottom: 1px solid ${borderColor};
   background-color: white;
   z-index: 1000;

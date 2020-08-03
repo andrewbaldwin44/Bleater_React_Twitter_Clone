@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import useFetch from '../hooks/useFetch.hook';
+import useFetch from '../../hooks/useFetch.hook';
 import moment from 'moment';
 import styled from "styled-components";
 
-import Tweet from './Tweet/index';
-import { TweetProvider } from './Tweet/TweetContext';
-import Spinner from './Spinner';
+import WriteTweet from "./WriteTweet";
+import Tweet from '../Tweet/index';
+import { TweetProvider } from '../Tweet/TweetContext';
+import Spinner from '../Spinner';
 
 function HomeFeed({ setHeader }) {
   const [homeFeed, setHomeFeed] = useState(null);
@@ -30,25 +31,28 @@ function HomeFeed({ setHeader }) {
     const { tweetIds, tweetsById } = homeFeed;
 
     return (
-      <Tweets>
-        {tweetIds.map(tweetID => {
-          const tweet = tweetsById[tweetID];
-          const { timestamp } = tweetsById[tweetID];
-          const date = moment(timestamp).format("• MMM Do");
+      <>
+        <WriteTweet />
+        <Tweets>
+          {tweetIds.map(tweetID => {
+            const tweet = tweetsById[tweetID];
+            const { timestamp } = tweetsById[tweetID];
+            const date = moment(timestamp).format("• MMM Do");
 
-          return (
-            <TweetContainer onClick={() => sendToTweet(tweetID)} key={tweetID} >
-              <TweetProvider
-                id={tweetID}
-                tweet={tweet}
-                date={date}
-              >
-                  <Tweet />
-              </TweetProvider>
-            </TweetContainer>
-          )
-        })}
-      </Tweets>
+            return (
+              <TweetContainer onClick={() => sendToTweet(tweetID)} key={tweetID} >
+                <TweetProvider
+                  id={tweetID}
+                  tweet={tweet}
+                  date={date}
+                >
+                    <Tweet />
+                </TweetProvider>
+              </TweetContainer>
+            )
+          })}
+        </Tweets>
+      </>
     )
   }
   else {

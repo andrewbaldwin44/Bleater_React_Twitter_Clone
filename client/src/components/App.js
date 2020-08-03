@@ -5,7 +5,7 @@ import GlobalStyles from './GlobalStyles';
 
 import Sidebar from './Sidebar';
 import Headbar from "./Headbar";
-import HomeFeed from './HomeFeed';
+import HomeFeed from './HomePage/HomeFeed';
 import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';

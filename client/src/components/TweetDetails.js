@@ -9,7 +9,7 @@ import Body from "./Tweet/Body";
 import DetailedFooter from "./Tweet/DetailedFooter";
 import { TweetProvider } from './Tweet/TweetContext';
 import Spinner from './Spinner';
-import { SpinnerContainer } from './HomeFeed';
+import { SpinnerContainer } from './HomePage/HomeFeed';
 import { COLORS } from "../constants";
 
 import styled from 'styled-components';
