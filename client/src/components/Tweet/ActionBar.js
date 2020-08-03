@@ -17,12 +17,18 @@ const ActionBar = () => {
   return (
     <Wrapper>
       <Reply />
-      <div>
+      <CounterContainer>
         <Retweet />
-        <RetweetCounter>{likes}</RetweetCounter>
-      </div>
-      <Like />
-      <LikeCounter>{retweets}</LikeCounter>
+        {retweets > 0 && (
+          <Counter>{retweets}</Counter>
+        )}
+      </CounterContainer>
+      <CounterContainer>
+        <Like />
+        {likes > 0 && (
+          <Counter>{likes}</Counter>
+        )}
+      </CounterContainer>
       <Share />
     </Wrapper>
   );
@@ -36,12 +42,14 @@ export const Wrapper = styled.div`
   height: 48px;
 `;
 
-const RetweetCounter = styled.span`
-  color: black;
+const CounterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 20px;
 `;
 
-const LikeCounter = styled.span`
-  color: black;
+const Counter = styled.span`
+  padding-left: 5px;
 `;
 
 export default ActionBar;
