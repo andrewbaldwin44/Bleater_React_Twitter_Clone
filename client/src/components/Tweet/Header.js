@@ -9,15 +9,15 @@ const { lightText } = COLORS;
 const Header = () => {
   const {
     displayName,
-    username,
+    handle,
     date,
   } = useContext(TweetContext);
 
   return (
     <Wrapper>
       <Name>
-        <DisplayName to={`/users/${username}`}>{displayName}</DisplayName>
-        <Username>@{username}</Username>
+        <DisplayName to={`/users/${handle}`}>{displayName}</DisplayName>
+        <Username>@{handle}</Username>
         <Timestamp>{date}</Timestamp>
       </Name>
     </Wrapper>

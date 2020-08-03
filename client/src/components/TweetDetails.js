@@ -4,13 +4,9 @@ import moment from 'moment';
 import useFetch from '../hooks/useFetch.hook';
 import { useParams } from 'react-router-dom';
 
+import DetailedHeader from "./Tweet/DetailedHeader";
+import Body from "./Tweet/Body";
 import Footer from "./Tweet/Footer";
-import { TweetContents } from "./Tweet/index";
-import { Wrapper as UserInfo } from "./Tweet/Header";
-import { DisplayName } from "./Tweet/Header";
-import { Username } from "./Tweet/Header";
-import { TweetMediaContainer } from "./Tweet/index";
-import { TweetMedia } from "./Tweet/index";
 import { TweetProvider } from './Tweet/TweetContext';
 import { HeadbarContext } from "./Headbar/HeadbarContext";
 import Spinner from './Spinner';
@@ -56,19 +52,8 @@ function TweetDetails() {
           key={tweetID}
           tweet={tweet}
         >
-          <UserInfo>
-            <Avatar src={avatarSrc} />
-            <Name>
-              <DisplayName>{displayName}</DisplayName>
-              <Username>@{handle}</Username>
-            </Name>
-          </UserInfo>
-          <TweetContents>{status}</TweetContents>
-          {media && (
-            <TweetMediaContainer>
-              <TweetMedia src={url} />
-            </TweetMediaContainer>
-          )}
+          <DetailedHeader />
+          <Body />
           <Timestamp>{date}</Timestamp>
           <Footer />
         </TweetProvider>
@@ -88,19 +73,6 @@ const Wrapper = styled.div`
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
   padding: 16px;
-`;
-
-export const Avatar = styled.img`
-  min-width: 50px;
-  height: 50px;
-  margin-right: 15px;
-  border-radius: 50%;
-`;
-
-export const Name = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `;
 
 const Timestamp = styled.div`

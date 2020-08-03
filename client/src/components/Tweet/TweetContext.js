@@ -47,7 +47,7 @@ export function TweetProvider({ children, id, tweet }) {
         tweetID: id,
         tweetContents: status,
         displayName: displayName,
-        username: handle,
+        handle,
         isLikedByCurrentUser: isLiked,
         isRetweetedByCurrentUser: isRetweeted,
         likes,
