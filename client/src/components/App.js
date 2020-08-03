@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import styled from "styled-components";
 import GlobalStyles from './GlobalStyles';
 
@@ -22,7 +22,6 @@ const { mainWidth } = PAGE_DIMENSIONS;
 
 function App() {
   const { status } = useContext(CurrentUserContext);
-
   const [header, setHeader] = useState('Home');
 
   return (
@@ -48,13 +47,11 @@ function App() {
                   <Route exact path='/tweet/:tweetID' >
                     <TweetDetails setHeader={setHeader} />
                   </Route>
-                  <Route exact path='/users/:profileID' >
-                    <Profile setHeader={setHeader} />
-                  </Route>
                   <Route exact path='/users/:profileID/feed' >
                     <Profile setHeader={setHeader} />
                     <UserFeed />
                   </Route>
+                  <Redirect from='/users/:profileID' to="/users/:profileID/feed" />
                 </Switch>
               </PageContent>
             </PageContainer>
