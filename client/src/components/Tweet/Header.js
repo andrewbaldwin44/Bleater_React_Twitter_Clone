@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { TweetContext } from './TweetContext';
 import { COLORS } from "../../constants";
@@ -13,10 +13,21 @@ const Header = () => {
     date,
   } = useContext(TweetContext);
 
+  const history = useHistory();
+
+  const sendToUser = (event, handle) => {
+    event.stopPropagation();
+    history.push(`/users/${handle}`);
+  }
+
   return (
     <Wrapper>
       <Name>
-        <DisplayName to={`/users/${handle}`}>{displayName}</DisplayName>
+        <DisplayName
+          onClick={event => sendToUser(event, handle)}
+        >
+          {displayName}
+        </DisplayName>
         <Username>@{handle}</Username>
         <Timestamp>{date}</Timestamp>
       </Name>
@@ -34,7 +45,7 @@ const Name = styled.div`
   align-items: center;
 `;
 
-export const DisplayName = styled(Link)`
+export const DisplayName = styled.span`
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;

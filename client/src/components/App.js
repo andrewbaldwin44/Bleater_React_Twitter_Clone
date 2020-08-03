@@ -9,7 +9,7 @@ import HomeFeed from './HomeFeed';
 import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';
-import Profile from './Profile/Profile';
+import Profile from './Profile/index';
 import UserFeed from "./UserFeed";
 
 import Spinner from './Spinner';
