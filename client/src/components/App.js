@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from "styled-components";
 import GlobalStyles from './GlobalStyles';
 
 import Sidebar from './Sidebar';
-import Headbar from "./Headbar/Headbar";
-import { HeadbarProvider } from "./Headbar/HeadbarContext";
+import Headbar from "./Headbar";
 import HomeFeed from './HomeFeed';
 import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
@@ -24,6 +23,8 @@ const { mainWidth } = PAGE_DIMENSIONS;
 function App() {
   const { status } = useContext(CurrentUserContext);
 
+  const [header, setHeader] = useState('Home');
+
   return (
     <Main>
       <Router>
@@ -31,34 +32,32 @@ function App() {
         {status === 'idle' ? (
           <>
             <Sidebar />
-            <HeadbarProvider>
-              <PageContainer>
-                <Headbar />
-                <PageContent>
-                  <Switch>
-                    <Route exact path='/' >
-                      <HomeFeed />
-                    </Route>
-                    <Route exact path='/notifications' >
-                      <Notifications />
-                    </Route>
-                    <Route exact path='/bookmarks' >
-                      <Bookmarks />
-                    </Route>
-                    <Route exact path='/tweet/:tweetID' >
-                      <TweetDetails />
-                    </Route>
-                    <Route exact path='/users/:profileID' >
-                      <Profile />
-                    </Route>
-                    <Route exact path='/users/:profileID/feed' >
-                      <Profile />
-                      <UserFeed />
-                    </Route>
-                  </Switch>
-                </PageContent>
-              </PageContainer>
-              </HeadbarProvider>
+            <PageContainer>
+              <Headbar header={header} />
+              <PageContent>
+                <Switch>
+                  <Route exact path='/' >
+                    <HomeFeed setHeader={setHeader} />
+                  </Route>
+                  <Route exact path='/notifications' >
+                    <Notifications setHeader={setHeader} />
+                  </Route>
+                  <Route exact path='/bookmarks' >
+                    <Bookmarks setHeader={setHeader} />
+                  </Route>
+                  <Route exact path='/tweet/:tweetID' >
+                    <TweetDetails setHeader={setHeader} />
+                  </Route>
+                  <Route exact path='/users/:profileID' >
+                    <Profile setHeader={setHeader} />
+                  </Route>
+                  <Route exact path='/users/:profileID/feed' >
+                    <Profile />
+                    <UserFeed />
+                  </Route>
+                </Switch>
+              </PageContent>
+            </PageContainer>
           </>
       ) : (
         <SpinnerContainer>

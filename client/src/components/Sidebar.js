@@ -12,7 +12,7 @@ const { primaryDarkRed, redHighlight } = COLORS;
 
 function Sidebar() {
   const { currentUser } = useContext(CurrentUserContext);
-  
+
   return (
     <NavBar>
       <li>
@@ -25,7 +25,7 @@ function Sidebar() {
         </StyledLink>
       </NavItem>
       <NavItem>
-        <StyledLink exact to={`/profile/${currentUser.handle}`} activeClassName="active">
+        <StyledLink exact to={`/users/${currentUser.handle}`} activeClassName="active">
           <BsPerson className="icon" />
           Profile
         </StyledLink>

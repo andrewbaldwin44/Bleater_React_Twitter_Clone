@@ -1,15 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { HeadbarContext } from "./HeadbarContext";
-import { COLORS, PAGE_DIMENSIONS } from "../../constants";
+import { COLORS, PAGE_DIMENSIONS } from "../constants";
 
 const { borderColor } = COLORS;
 const { mainWidth, headerBottomMargin } = PAGE_DIMENSIONS;
 
-function Headbar() {
-  const { header } = useContext(HeadbarContext);
-
+function Headbar({ header }) {
   return (
     <HeadbarNav>
       <h2>{header}</h2>

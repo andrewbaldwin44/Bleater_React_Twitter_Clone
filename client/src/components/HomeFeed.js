@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import useFetch from '../hooks/useFetch.hook';
 import moment from 'moment';
@@ -6,10 +6,9 @@ import styled from "styled-components";
 
 import Tweet from './Tweet/index';
 import { TweetProvider } from './Tweet/TweetContext';
-import { HeadbarContext } from "./Headbar/HeadbarContext";
 import Spinner from './Spinner';
 
-function HomeFeed() {
+function HomeFeed({ setHeader }) {
   const [homeFeed, setHomeFeed] = useState(null);
   const [status, setStatus] = useState("loading");
   const history = useHistory();
@@ -18,7 +17,6 @@ function HomeFeed() {
     history.push(`/tweet/${tweetID}`);
   }
 
-  const { setHeader } = useContext(HeadbarContext);
   setHeader('Home');
 
   useFetch('/api/me/home-feed', data => {
