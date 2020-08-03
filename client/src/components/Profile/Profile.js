@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFetch from '../../hooks/useFetch.hook';
 import { useParams } from 'react-router-dom';
 import styled from "styled-components";
@@ -22,10 +22,16 @@ function Profile() {
   const [currentProfile, setCurrentProfile] = useState(null);
   const [status, setStatus] = useState("loading");
 
-  useFetch(`/api/${profileID}/profile`, data => {
+  const updateProfile = data => {
     setCurrentProfile(data.profile);
     setStatus('idle');
-  });
+  }
+
+  useEffect(() => {
+    fetch(`/api/${profileID}/profile`)
+        .then(response => response.json())
+        .then(updateProfile);
+  }, [profileID]);
 
   if (status === 'idle') {
     const {
