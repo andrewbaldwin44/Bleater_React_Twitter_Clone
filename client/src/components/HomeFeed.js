@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import useFetch from '../hooks/useFetch.hook';
 import moment from 'moment';
@@ -17,7 +17,9 @@ function HomeFeed({ setHeader }) {
     history.push(`/tweet/${tweetID}`);
   }
 
-  setHeader('Home');
+  useEffect(() => {
+    setHeader('Home');
+  });
 
   useFetch('/api/me/home-feed', data => {
     setHomeFeed(data);

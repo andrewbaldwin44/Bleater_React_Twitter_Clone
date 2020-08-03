@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 
 import useFetch from '../hooks/useFetch.hook';
@@ -20,15 +20,18 @@ function TweetDetails({ setHeader }) {
   const { tweetID } = useParams();
 
   const [tweet, setTweet] = React.useState(null);
-  const [fetchStatus, setFetchStatus] = React.useState("loading");
+  const [status, setStatus] = React.useState("loading");
 
   useFetch(`/api/tweet/${tweetID}`, data => {
     setTweet(data.tweet);
-    setFetchStatus('idle');
+    setStatus('idle');
   });
 
-  if (fetchStatus === 'idle') {
+  useEffect(() => {
     setHeader('Tweet');
+  });
+
+  if (status === 'idle') {
     const { timestamp } = tweet;
 
     const date = moment(timestamp).format("LT - MMM Do, YYYY");

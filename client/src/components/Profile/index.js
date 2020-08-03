@@ -32,6 +32,13 @@ function Profile({ setHeader }) {
         .then(updateProfile);
   }, [profileID]);
 
+  useEffect(() => {
+    if (status === 'idle') {
+      const { displayName } = currentProfile;
+      setHeader(displayName);
+    }
+  });
+
   if (status === 'idle') {
     const {
       bannerSrc,
@@ -40,8 +47,6 @@ function Profile({ setHeader }) {
       handle,
       isFollowingYou
     } = currentProfile;
-
-    setHeader(displayName);
 
     return (
       <ProfileProvider
