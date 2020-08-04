@@ -12,22 +12,25 @@ const Tweet = () => {
   return (
     <Wrapper >
       <Avatar src={avatarSrc} />
-      <div>
+      <Content>
         <Header />
         <Body />
         <Footer />
-      </div>
+      </Content>
     </Wrapper>
   );
 };
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   width: 100%;
   padding: 16px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
+`;
+
+const Content = styled.div`
+  width: 100%;
 `;
 
 export const Avatar = styled.img`
