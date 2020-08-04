@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect, createRef } from 'react';
 import styled from "styled-components";
 
 import { Wrapper, Avatar } from "../Tweet/index";
@@ -12,25 +12,53 @@ const { characterMax } = RULES;
 function WriteTweet() {
   const { currentUser } = useContext(CurrentUserContext);
   const [remainingCharacters, setRemainingCharacters] = useState(characterMax);
+  const [tweetContent, setTweetContent] = useState(null);
+
+  const textInput = createRef();
 
   const {
     avatarSrc
   } = currentUser;
-
-  let remaining
 
   const handleInput = event => {
     const characterAmount = event.target.value.length;
     setRemainingCharacters(characterMax - characterAmount);
   }
 
+  const handleClick = event => {
+    const tweetMessage = textInput.current.value;
+
+    const tweetData = {
+      method: 'POST',
+      body: JSON.stringify({ status: tweetMessage }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      }
+    }
+
+    setTweetContent(tweetData)
+  }
+
+  useEffect(() => {
+    if (tweetContent) {
+      fetch(`/api/tweet/`, tweetContent)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+    }
+  }, [tweetContent]);
+
   return (
     <TextBoxContainer >
       <Avatar src={avatarSrc} />
-      <TextBox placeholder="What's happening?" onInput={handleInput} >
+      <TextBox
+        ref={textInput}
+        placeholder="What's happening?"
+        onInput={handleInput}
+      >
       </TextBox>
       <CharacterCount>{remainingCharacters}</CharacterCount>
-      <Post>Bleat</Post>
+      <Post onClick={handleClick}>Bleat</Post>
     </TextBoxContainer>
   )
 }

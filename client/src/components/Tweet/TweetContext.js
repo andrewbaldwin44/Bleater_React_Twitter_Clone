@@ -1,5 +1,4 @@
-import React, { createContext, useState } from "react";
-import usePut from "../../hooks/usePut.hook";
+import React, { createContext, useState, useEffect } from "react";
 
 export const TweetContext = createContext(null);
 
@@ -36,11 +35,9 @@ export function TweetProvider({ children, id, tweet, date }) {
     }
   }
 
-  usePut(
-    `/api/tweet/${id}/like`,
-    tweetLikedBody,
-    isLiked
-  );
+  useEffect(() => {
+    fetch(`/api/tweet/${id}/like`, tweetLikedBody);
+  });
 
   const handleToggleLiked = event => {
     event.stopPropagation();
