@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import Header from "./Header";
@@ -9,10 +10,23 @@ import { TweetContext } from './TweetContext';
 import Retweet from "./Retweet";
 
 const Tweet = () => {
-  const { avatarSrc, isRetweeted } = useContext(TweetContext);
+  const { avatarSrc, isRetweeted, tweetID } = useContext(TweetContext);
+  const history = useHistory();
+
+  const navigateToTweet = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      event.stopPropagation();
+      history.push(`/tweet/${tweetID}`);
+    }
+  }
 
   return (
-    <Wrapper >
+    <Wrapper
+      tabIndex="0"
+      aria-label="View Tweet"
+      onKeyDown={navigateToTweet}
+      >
       <Avatar src={avatarSrc} />
       <Content>
         {isRetweeted && (

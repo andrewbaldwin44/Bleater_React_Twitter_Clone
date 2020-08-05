@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 import { TweetContext } from './TweetContext';
 
 import { Wrapper as UserInfo } from "./Header";
-import { Username, DisplayName } from "./Header";
+import { Username } from "./Header";
 
 function DetailedHeader() {
   const {
@@ -20,6 +21,8 @@ function DetailedHeader() {
         <DisplayName
           to={`/users/${handle}`}
           className='displayName'
+          tabIndex="0"
+          aria-label="View User Profile"
         >
           {displayName}
         </DisplayName>
@@ -44,6 +47,17 @@ export const Name = styled.div`
 
   .displayName {
     font-size: 20px;
+  }
+`;
+
+const DisplayName = styled(Link)`
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  padding-right: 10px;
+
+  &:hover {
+    text-decoration: underline;
   }
 `;
 

@@ -15,16 +15,26 @@ const Header = () => {
 
   const history = useHistory();
 
-  const sendToUser = (event, handle) => {
+  const sendToUser = event => {
     event.stopPropagation();
+    event.preventDefault();
     history.push(`/users/${handle}`);
+  }
+
+  const handleKeyNaviagation = event => {
+    if (event.key === 'Enter') {
+      sendToUser(event);
+    }
   }
 
   return (
     <Wrapper>
       <Name>
         <DisplayName
-          onClick={event => sendToUser(event, handle)}
+          onClick={sendToUser}
+          tabIndex="0"
+          aria-label="View User Profile"
+          onKeyDown={handleKeyNaviagation}
         >
           {displayName}
         </DisplayName>
@@ -45,7 +55,7 @@ const Name = styled.div`
   align-items: center;
 `;
 
-export const DisplayName = styled.span`
+const DisplayName = styled.span`
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
