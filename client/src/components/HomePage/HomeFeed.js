@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import useFetch from '../../hooks/useFetch.hook';
 import moment from 'moment';
 import styled from "styled-components";
 
@@ -12,6 +11,7 @@ import Spinner from '../Spinner';
 function HomeFeed({ setHeader }) {
   const [homeFeed, setHomeFeed] = useState(null);
   const [status, setStatus] = useState("loading");
+  const [newTweet, setNewTweet] = useState(null);
   const history = useHistory();
 
   const sendToTweet = tweetID => {
@@ -22,17 +22,23 @@ function HomeFeed({ setHeader }) {
     setHeader('Home');
   });
 
-  useFetch('/api/me/home-feed', data => {
+  const updateHomeFeed = data => {
     setHomeFeed(data);
     setStatus('idle');
-  });
+  }
+
+  useEffect(() => {
+    fetch('/api/me/home-feed')
+        .then(response => response.json())
+        .then(updateHomeFeed);
+  }, [newTweet]);
 
   if (status === 'idle') {
     const { tweetIds, tweetsById } = homeFeed;
 
     return (
       <>
-        <WriteTweet />
+        <WriteTweet setNewTweet={setNewTweet} />
         <Tweets>
           {tweetIds.map(tweetID => {
             const tweet = tweetsById[tweetID];

@@ -9,7 +9,7 @@ import { CurrentUserContext } from "../CurrentUserContext";
 const { primaryDarkRed, borderColor, lightText } = COLORS;
 const { characterMax } = RULES;
 
-function WriteTweet() {
+function WriteTweet({ setNewTweet }) {
   const { currentUser } = useContext(CurrentUserContext);
   const [remainingCharacters, setRemainingCharacters] = useState(characterMax);
   const [tweetContent, setTweetContent] = useState(null);
@@ -26,25 +26,28 @@ function WriteTweet() {
   }
 
   const handleClick = event => {
-    const tweetMessage = textInput.current.value;
+    if (remainingCharacters >= 0) {
+      const tweetMessage = textInput.current.value;
+      textInput.current.value = '';
+      setTweetContent(null);
 
-    const tweetData = {
-      method: 'POST',
-      body: JSON.stringify({ status: tweetMessage }),
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+      const tweetData = {
+        method: 'POST',
+        body: JSON.stringify({ status: tweetMessage }),
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        }
       }
-    }
 
-    setTweetContent(tweetData)
+      setTweetContent(tweetData);
+    }
   }
 
   useEffect(() => {
     if (tweetContent) {
       fetch(`/api/tweet/`, tweetContent)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+        .then(response => response.json())
+        .then(data => setNewTweet(data.tweet.status));
     }
   }, [tweetContent]);
 
@@ -57,7 +60,11 @@ function WriteTweet() {
         onInput={handleInput}
       >
       </TextBox>
-      <CharacterCount>{remainingCharacters}</CharacterCount>
+      <CharacterCount
+        remainingCharacters={remainingCharacters}
+      >
+        {remainingCharacters}
+      </CharacterCount>
       <Post onClick={handleClick}>Bleat</Post>
     </TextBoxContainer>
   )
@@ -81,7 +88,11 @@ const TextBox = styled.textarea`
 
 const CharacterCount = styled.span`
   position: absolute;
-  color: ${lightText};
+  color: ${props => {
+    if (props.remainingCharacters < 0) return 'red';
+    else if (props.remainingCharacters <= 55) return 'orange';
+    else return lightText;
+  }};
   right: 125px;
   bottom: 20px;
 `;
