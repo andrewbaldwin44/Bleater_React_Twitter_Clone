@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import useFetch from '../hooks/useFetch.hook';
+import useFetch from "../hooks/useFetch.hook";
 
 export const CurrentUserContext = createContext(null);
 
@@ -10,7 +10,7 @@ export function CurrentUserProvider({ children }) {
   useFetch('/api/me/profile', data => {
     setCurrentUser(data.profile);
     setStatus('idle');
-  });
+  }, setStatus);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, status }}>

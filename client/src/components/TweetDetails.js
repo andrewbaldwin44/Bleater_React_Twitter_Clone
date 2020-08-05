@@ -25,7 +25,7 @@ function TweetDetails({ setHeader }) {
   useFetch(`/api/tweet/${tweetID}`, data => {
     setTweet(data.tweet);
     setStatus('idle');
-  });
+  }, setStatus);
 
   useEffect(() => {
     setHeader('Bleat');
@@ -50,11 +50,16 @@ function TweetDetails({ setHeader }) {
       </Wrapper>
     );
   }
-  else {
+  else if (status === 'loading') {
     return (
       <SpinnerContainer>
         <Spinner />
       </SpinnerContainer>
+    )
+  }
+  else {
+    return (
+      <div>Error!</div>
     )
   }
 }

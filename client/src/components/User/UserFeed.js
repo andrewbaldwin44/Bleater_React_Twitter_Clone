@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useFetch from '../../hooks/useFetch.hook';
+import useFetch from "../../hooks/useFetch.hook";
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -16,14 +16,12 @@ function UserFeed() {
   const [status, setStatus] = useState("loading");
 
   useFetch(`/api/${profileID}/feed`, data => {
-    console.log(data)
     setUserFeed(data);
     setStatus('idle');
-  });
+  }, setStatus);
 
   if (status === 'idle') {
     const { tweetIds, tweetsById } = userFeed;
-    console.log(userFeed)
 
     return (
       <Tweets>
@@ -42,11 +40,18 @@ function UserFeed() {
       </Tweets>
     )
   }
-  else {
+  else if (status === 'loading') {
     return (
       <SpinnerContainer>
         <Spinner />
       </SpinnerContainer>
+    )
+  }
+  else {
+    return (
+      <div>
+          Error!
+      </div>
     )
   }
 }

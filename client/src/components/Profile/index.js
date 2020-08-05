@@ -29,7 +29,8 @@ function Profile({ setHeader }) {
   useEffect(() => {
     fetch(`/api/${profileID}/profile`)
         .then(response => response.json())
-        .then(updateProfile);
+        .then(updateProfile)
+        .catch(error => setStatus('error'));
   }, [profileID]);
 
   useEffect(() => {
@@ -71,11 +72,16 @@ function Profile({ setHeader }) {
       </ProfileProvider>
     )
   }
-  else {
+  else if (status === 'laoding') {
     return (
       <SpinnerContainer>
         <Spinner />
       </SpinnerContainer>
+    )
+  }
+  else {
+    return (
+      <div>Error!</div>
     )
   }
 }

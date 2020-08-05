@@ -26,55 +26,61 @@ function App() {
   const { status } = useContext(CurrentUserContext);
   const [header, setHeader] = useState('Home');
 
-  return (
-    <Main>
-      <Router>
-        <GlobalStyles />
-        {status === 'idle' ? (
-          <>
-            <Sidebar />
-            <PageContainer>
-              <Headbar header={header} />
-              <PageContent>
-                <Switch>
-                  <Route exact path='/' >
-                    <HomeFeed setHeader={setHeader} />
-                  </Route>
-                  <Route exact path='/notifications' >
-                    <Notifications setHeader={setHeader} />
-                  </Route>
-                  <Route exact path='/bookmarks' >
-                    <Bookmarks setHeader={setHeader} />
-                  </Route>
-                  <Route exact path='/tweet/:tweetID' >
-                    <TweetDetails setHeader={setHeader} />
-                  </Route>
-                  <Route exact path='/users/:profileID/feed' >
-                    <Profile setHeader={setHeader} />
-                    <UserFeed />
-                  </Route>
-                  <Route exact path='/users/:profileID/media' >
-                    <Profile setHeader={setHeader} />
-                    <UserMedia />
-                  </Route>
-                  <Route exact path='/users/:profileID/likes' >
-                    <Profile setHeader={setHeader} />
-                    <UserLikes />
-                  </Route>
-                  <Redirect from='/users/:profileID' to="/users/:profileID/feed" />
-                </Switch>
-              </PageContent>
-            </PageContainer>
-          </>
-      ) : (
-        <SpinnerContainer>
-          <Spinner />
-        </SpinnerContainer>
-      )
-        }
-      </Router>
-    </Main>
-  );
+  if (status === 'idle') {
+    return (
+      <Main>
+        <Router>
+          <GlobalStyles />
+          <Sidebar />
+          <PageContainer>
+            <Headbar header={header} />
+            <PageContent>
+              <Switch>
+                <Route exact path='/' >
+                  <HomeFeed setHeader={setHeader} />
+                </Route>
+                <Route exact path='/notifications' >
+                  <Notifications setHeader={setHeader} />
+                </Route>
+                <Route exact path='/bookmarks' >
+                  <Bookmarks setHeader={setHeader} />
+                </Route>
+                <Route exact path='/tweet/:tweetID' >
+                  <TweetDetails setHeader={setHeader} />
+                </Route>
+                <Route exact path='/users/:profileID/feed' >
+                  <Profile setHeader={setHeader} />
+                  <UserFeed />
+                </Route>
+                <Route exact path='/users/:profileID/media' >
+                  <Profile setHeader={setHeader} />
+                  <UserMedia />
+                </Route>
+                <Route exact path='/users/:profileID/likes' >
+                  <Profile setHeader={setHeader} />
+                  <UserLikes />
+                </Route>
+                <Redirect from='/users/:profileID' to="/users/:profileID/feed" />
+              </Switch>
+            </PageContent>
+          </PageContainer>
+        </Router>
+      </Main>
+    )
+  }
+
+  else if (status === 'loading') {
+    return (
+      <SpinnerContainer>
+        <Spinner />
+      </SpinnerContainer>
+    )
+  }
+  else {
+    return (
+      <div>Error!</div>
+    )
+  }
 }
 
 const Main = styled.main`

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import useFetch from "../../hooks/useFetch.hook";
 import moment from 'moment';
 import styled from "styled-components";
 
@@ -29,11 +30,11 @@ function HomeFeed({ setHeader }) {
     setNewTweetStatus('idle');
   }
 
-  useEffect(() => {
-    fetch('/api/me/home-feed')
-        .then(response => response.json())
-        .then(updateHomeFeed);
-  }, [newTweet]);
+  useFetch('/api/me/home-feed', data => {
+    setHomeFeed(data);
+    setStatus('idle');
+    setNewTweetStatus('idle');
+  }, setStatus, newTweet);
 
   if (status === 'idle') {
     const { tweetIds, tweetsById } = homeFeed;
@@ -67,11 +68,16 @@ function HomeFeed({ setHeader }) {
       </>
     )
   }
-  else {
+  else if (status === 'loading') {
     return (
       <SpinnerContainer>
         <Spinner />
       </SpinnerContainer>
+    )
+  }
+  else {
+    return (
+      <div>Error!</div>
     )
   }
 }
