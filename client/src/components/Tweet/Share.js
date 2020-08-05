@@ -7,7 +7,10 @@ function Share() {
     <Action
       color="rgb(27, 149, 224)"
       size={40}
-      onClick={event => event.stopPropagation()}
+      onClick={event => {
+        event.preventDefault();
+        event.stopPropagation();
+      }}
     >
       <TweetActionIcon kind="share" />
     </Action>

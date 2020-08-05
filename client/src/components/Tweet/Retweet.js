@@ -6,7 +6,7 @@ import { TweetContext } from './TweetContext';
 
 function Retweet() {
   const {
-    isRetweetedByCurrentUser,
+    isRetweeted,
     handleToggleRetweet
   } = useContext(TweetContext);
 
@@ -18,7 +18,7 @@ function Retweet() {
     >
       <TweetActionIcon
         kind="retweet"
-        color={isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
+        color={isRetweeted ? "rgb(23, 191, 99)" : undefined}
       />
     </Action>
   )

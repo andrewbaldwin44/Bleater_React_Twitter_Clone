@@ -40,6 +40,7 @@ export function TweetProvider({ children, id, tweet, date }) {
   });
 
   const handleToggleLiked = event => {
+    event.preventDefault();
     event.stopPropagation();
 
     isLiked ? setLikes(likes - 1) : setLikes(likes + 1);
@@ -47,7 +48,9 @@ export function TweetProvider({ children, id, tweet, date }) {
   }
 
   const handleToggleRetweet = event => {
+    event.preventDefault();
     event.stopPropagation();
+
     isRetweeted ? setRetweets(retweets - 1) : setRetweets(retweets + 1);
     setIsRetweeted(!isRetweeted);
   }
@@ -59,8 +62,8 @@ export function TweetProvider({ children, id, tweet, date }) {
         tweetContents: status,
         displayName: displayName,
         handle,
-        isLikedByCurrentUser: isLiked,
-        isRetweetedByCurrentUser: isRetweeted,
+        isLiked: isLiked,
+        isRetweeted: isRetweeted,
         likes,
         retweets,
         handleToggleLiked,

@@ -59,7 +59,7 @@ const Information = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 420px;
+  width: 500px;
 
   div {
     display: flex;

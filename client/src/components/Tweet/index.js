@@ -6,13 +6,21 @@ import Body from "./Body";
 import Footer from "./Footer";
 import { TweetContext } from './TweetContext';
 
+import Retweet from "./Retweet";
+
 const Tweet = () => {
-  const { avatarSrc } = useContext(TweetContext);
+  const { avatarSrc, isRetweeted } = useContext(TweetContext);
 
   return (
     <Wrapper >
       <Avatar src={avatarSrc} />
       <Content>
+        {isRetweeted && (
+          <RetweetLabel>
+            <Retweet />
+            <span>Rebleated</span>
+          </RetweetLabel>
+        )}
         <Header />
         <Body />
         <Footer />
@@ -39,6 +47,11 @@ export const Avatar = styled.img`
   height: 48px;
   margin-right: 50px;
   border-radius: 50%;
+`;
+
+const RetweetLabel = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export default Tweet;

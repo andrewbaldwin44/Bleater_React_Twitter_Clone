@@ -16,6 +16,7 @@ function UserFeed() {
   const [status, setStatus] = useState("loading");
 
   useFetch(`/api/${profileID}/feed`, data => {
+    console.log(data)
     setUserFeed(data);
     setStatus('idle');
   });
