@@ -8,12 +8,15 @@ import DetailedHeader from "./Tweet/DetailedHeader";
 import Body from "./Tweet/Body";
 import DetailedFooter from "./Tweet/DetailedFooter";
 import { TweetProvider } from './Tweet/TweetContext';
+
 import Spinner from './Spinner';
 import { SpinnerContainer } from './HomePage/HomeFeed';
-import { COLORS } from "../constants";
+import Error from "./Error";
+
 
 import styled from 'styled-components';
 
+import { COLORS } from "../constants";
 const { lightText } = COLORS;
 
 function TweetDetails({ setHeader }) {
@@ -59,7 +62,7 @@ function TweetDetails({ setHeader }) {
   }
   else {
     return (
-      <div>Error!</div>
+      <Error />
     )
   }
 }

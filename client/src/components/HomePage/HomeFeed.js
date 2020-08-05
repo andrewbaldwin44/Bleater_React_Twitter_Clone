@@ -7,7 +7,9 @@ import styled from "styled-components";
 import WriteTweet from "./WriteTweet";
 import Tweet from '../Tweet/index';
 import { TweetProvider } from '../Tweet/TweetContext';
+
 import Spinner from '../Spinner';
+import Error from "../Error";
 
 function HomeFeed({ setHeader }) {
   const [homeFeed, setHomeFeed] = useState(null);
@@ -23,12 +25,6 @@ function HomeFeed({ setHeader }) {
   useEffect(() => {
     setHeader('Home');
   });
-
-  const updateHomeFeed = data => {
-    setHomeFeed(data);
-    setStatus('idle');
-    setNewTweetStatus('idle');
-  }
 
   useFetch('/api/me/home-feed', data => {
     setHomeFeed(data);
@@ -77,7 +73,7 @@ function HomeFeed({ setHeader }) {
   }
   else {
     return (
-      <div>Error!</div>
+      <Error/>
     )
   }
 }

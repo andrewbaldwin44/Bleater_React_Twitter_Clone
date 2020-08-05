@@ -7,6 +7,7 @@ import ActionBar from "./ActionBar";
 import Content from "./Content";
 import NavBar from "./NavBar";
 
+import Error from "../Error";
 import Spinner from '../Spinner';
 import { SpinnerContainer } from '../HomePage/HomeFeed';
 
@@ -81,7 +82,7 @@ function Profile({ setHeader }) {
   }
   else {
     return (
-      <div>Error!</div>
+      <Error/>
     )
   }
 }

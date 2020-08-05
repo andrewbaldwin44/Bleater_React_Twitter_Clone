@@ -15,6 +15,7 @@ import UserMedia from "./User/UserMedia";
 import UserLikes from "./User/UserLikes";
 
 import Spinner from './Spinner';
+import Error from "./Error";
 
 import { CurrentUserContext } from './CurrentUserContext';
 import { COLORS, PAGE_DIMENSIONS } from "../constants";
@@ -61,6 +62,9 @@ function App() {
                   <UserLikes />
                 </Route>
                 <Redirect from='/users/:profileID' to="/users/:profileID/feed" />
+                  <Route path='/' >
+                    <Error message={"Baaaaahhh you're lost!"} />
+                  </Route>
               </Switch>
             </PageContent>
           </PageContainer>
@@ -78,7 +82,7 @@ function App() {
   }
   else {
     return (
-      <div>Error!</div>
+      <Error/>
     )
   }
 }
