@@ -3,9 +3,11 @@ import styled, { keyframes } from "styled-components";
 
 import SpinnerImage from "../assets/spinner.png";
 
-function Spinner() {
+function Spinner({ height }) {
+  height = height || '30px';
+  
   return (
-      <SpinnerIcon src={SpinnerImage} />
+    <SpinnerIcon src={SpinnerImage} height={height} />
   )
 }
 
@@ -19,7 +21,7 @@ const Spin = keyframes`
 `;
 
 const SpinnerIcon = styled.img`
-  height: 30px;
+  height: ${props => props.height};
   width: auto;
   animation: ${Spin} 1s infinite linear;
 `;

@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, createRef } from 'react';
 import styled from "styled-components";
 
+import Spinner from '../Spinner';
 import { Wrapper, Avatar } from "../Tweet/index";
 import { COLORS, RULES } from "../../constants";
 
@@ -9,7 +10,7 @@ import { CurrentUserContext } from "../CurrentUserContext";
 const { primaryDarkRed, borderColor, lightText } = COLORS;
 const { characterMax } = RULES;
 
-function WriteTweet({ setNewTweet }) {
+function WriteTweet({ setNewTweet, newTweetStatus, setNewTweetStatus }) {
   const { currentUser } = useContext(CurrentUserContext);
   const [remainingCharacters, setRemainingCharacters] = useState(characterMax);
   const [tweetContent, setTweetContent] = useState(null);
@@ -26,7 +27,9 @@ function WriteTweet({ setNewTweet }) {
   }
 
   const handleClick = event => {
-    if (remainingCharacters >= 0) {
+    if (remainingCharacters >= 0 && textInput.current.value) {
+      setNewTweetStatus('loading');
+
       const tweetMessage = textInput.current.value;
       textInput.current.value = '';
       setTweetContent(null);
@@ -65,7 +68,13 @@ function WriteTweet({ setNewTweet }) {
       >
         {remainingCharacters}
       </CharacterCount>
-      <Post onClick={handleClick}>Bleat</Post>
+      <Post onClick={handleClick}>
+        {newTweetStatus === 'idle' ? (
+          'Bleat'
+        ) : (
+          <Spinner height={'15px'} />
+        )}
+      </Post>
     </TextBoxContainer>
   )
 }
@@ -99,6 +108,9 @@ const CharacterCount = styled.span`
 
 const Post = styled.button`
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   font-size: inherit;
   font-family: inherit;

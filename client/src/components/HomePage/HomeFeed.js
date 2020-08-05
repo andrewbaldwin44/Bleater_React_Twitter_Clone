@@ -12,6 +12,7 @@ function HomeFeed({ setHeader }) {
   const [homeFeed, setHomeFeed] = useState(null);
   const [status, setStatus] = useState("loading");
   const [newTweet, setNewTweet] = useState(null);
+  const [newTweetStatus, setNewTweetStatus] = useState('idle');
   const history = useHistory();
 
   const sendToTweet = tweetID => {
@@ -25,6 +26,7 @@ function HomeFeed({ setHeader }) {
   const updateHomeFeed = data => {
     setHomeFeed(data);
     setStatus('idle');
+    setNewTweetStatus('idle');
   }
 
   useEffect(() => {
@@ -38,7 +40,11 @@ function HomeFeed({ setHeader }) {
 
     return (
       <>
-        <WriteTweet setNewTweet={setNewTweet} />
+        <WriteTweet
+          setNewTweet={setNewTweet}
+          newTweetStatus={newTweetStatus}
+          setNewTweetStatus={setNewTweetStatus}
+        />
         <Tweets>
           {tweetIds.map(tweetID => {
             const tweet = tweetsById[tweetID];
