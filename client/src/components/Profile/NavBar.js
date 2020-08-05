@@ -21,14 +21,14 @@ function NavBar() {
       </StyledLink>
       <StyledLink
         exact
-        to={`/usered`}
+        to={`/users/${handle}/media`}
         activeClassName="active"
       >
         Media
       </StyledLink>
       <StyledLink
         exact
-        to={`/use`}
+        to={`/users/${handle}/likes`}
         activeClassName="active"
       >
         Likes

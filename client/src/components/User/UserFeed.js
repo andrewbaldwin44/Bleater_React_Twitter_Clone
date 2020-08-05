@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import useFetch from '../hooks/useFetch.hook';
+import useFetch from '../../hooks/useFetch.hook';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import Tweet from './Tweet/index';
-import { TweetProvider } from './Tweet/TweetContext';
-import Spinner from "./Spinner";
-import { SpinnerContainer } from "./HomePage/HomeFeed";
+import Tweet from '../Tweet/index';
+import { TweetProvider } from '../Tweet/TweetContext';
+import Spinner from "../Spinner";
+import { SpinnerContainer } from "../HomePage/HomeFeed";
 
 function UserFeed() {
   const { profileID } = useParams();

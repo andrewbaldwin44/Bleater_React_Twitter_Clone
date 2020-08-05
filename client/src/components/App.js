@@ -10,7 +10,9 @@ import Notifications from './Notifications';
 import Bookmarks from './Bookmarks';
 import TweetDetails from './TweetDetails';
 import Profile from './Profile/index';
-import UserFeed from "./UserFeed";
+import UserFeed from "./User/UserFeed";
+import UserMedia from "./User/UserMedia";
+import UserLikes from "./User/UserLikes";
 
 import Spinner from './Spinner';
 
@@ -50,6 +52,14 @@ function App() {
                   <Route exact path='/users/:profileID/feed' >
                     <Profile setHeader={setHeader} />
                     <UserFeed />
+                  </Route>
+                  <Route exact path='/users/:profileID/media' >
+                    <Profile setHeader={setHeader} />
+                    <UserMedia />
+                  </Route>
+                  <Route exact path='/users/:profileID/likes' >
+                    <Profile setHeader={setHeader} />
+                    <UserLikes />
                   </Route>
                   <Redirect from='/users/:profileID' to="/users/:profileID/feed" />
                 </Switch>
