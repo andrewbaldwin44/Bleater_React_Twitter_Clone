@@ -26,7 +26,7 @@ const Tweet = () => {
       tabIndex="0"
       aria-label="View Tweet"
       onKeyDown={navigateToTweet}
-      >
+    >
       <Avatar src={avatarSrc} />
       <Content>
         {isRetweeted && (
