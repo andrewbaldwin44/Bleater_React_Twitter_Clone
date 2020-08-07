@@ -4,7 +4,8 @@
 
 const lodash = require('lodash');
 
-const router = require('express').Router();
+const express = require('express');
+const router = express();
 
 const data = require('../data');
 
@@ -12,7 +13,6 @@ const {
   CURRENT_USER_HANDLE,
   resolveRetweet,
   denormalizeTweet,
-  simulateProblems,
 } = require('./routes.helpers.js');
 
 const createTweet = (status, { isRetweet }) => {
@@ -51,7 +51,7 @@ router.get('/api/tweet/:tweetId', (req, res) => {
   tweet = resolveRetweet(tweet);
   tweet = denormalizeTweet(tweet);
 
-  return simulateProblems(res, { tweet });
+  return res.json({ tweet });
 });
 
 /**
@@ -61,7 +61,7 @@ router.post('/api/tweet', (req, res) => {
   const newTweet = createTweet(req.body.status, { isRetweet: false });
   data.tweets[newTweet.id] = newTweet;
 
-  return simulateProblems(res, { tweet: newTweet });
+  return res.json({ tweet: newTweet });
 });
 
 /**

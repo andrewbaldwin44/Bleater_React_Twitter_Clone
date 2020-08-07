@@ -2,7 +2,8 @@
   Endpoints related to feeds (ordered sets of tweets)
 */
 const lodash = require('lodash');
-const router = require('express').Router();
+const express = require('express');
+const router = express();
 
 const data = require('../data');
 
@@ -12,7 +13,6 @@ const {
   getUserProfile,
   getTweetsFromUser,
   getTweetsForUser,
-  simulateProblems,
   resolveRetweet,
   denormalizeTweet,
 } = require('./routes.helpers.js');
@@ -40,7 +40,7 @@ router.get('/api/me/home-feed', (req, res) => {
 
   const { tweetsById, tweetIds } = formatTweetResponse(relevantTweets);
 
-  return simulateProblems(res, {
+  return res.json({
     tweetsById,
     tweetIds,
   });

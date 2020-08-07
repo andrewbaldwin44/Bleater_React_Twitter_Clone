@@ -1,14 +1,12 @@
 {
   "name": "react_twitter_clone_project",
   "version": "1.0.0",
-  "proxy": "http://localhost:31415",
   "description": "React Project to Create a UI Clone of Twitter",
+  "proxy": "http://localhost:3000",
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently -p \"[{name}]\" -n \"CLIENT,SERVER\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"yarn run start:client\" \"yarn run start:server\"",
-    "start:server": "nodemon server/index.js",
-    "start:client": "react-scripts start",
+    "start": "node index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -32,23 +30,25 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-spring": "^8.0.27",
+    "serve": "^11.3.2",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "express": "^4.17.1",
-    "nodemon": "^2.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "concurrently": "^5.1.0"
+    "nodemon": "^2.0.2"
   },
   "development": [
     "last 1 chrome version",

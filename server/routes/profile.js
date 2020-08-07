@@ -2,7 +2,8 @@
   Endpoints related to profile information and user details
 */
 const lodash = require('lodash');
-const router = require('express').Router();
+const express = require('express');
+const router = express();
 
 const data = require('../data');
 
@@ -10,14 +11,13 @@ const {
   CURRENT_USER_HANDLE,
   getUser,
   getUserProfile,
-  getTweetsFromUser,
-  simulateProblems,
+  getTweetsFromUser
 } = require('./routes.helpers.js');
 
 router.get('/api/me/profile', (req, res) => {
   const profile = getUserProfile(CURRENT_USER_HANDLE);
 
-  return simulateProblems(res, { profile });
+  return res.json({ profile });
 });
 
 router.get('/api/:handle/profile', (req, res) => {
@@ -41,6 +41,7 @@ router.get('/api/:handle/following', (req, res) => {
 
   return res.json({ following });
 });
+
 router.get('/api/:handle/followers', (req, res) => {
   const user = getUser(req.params.handle);
   const followers = user.followerIds.map(getUserProfile);
