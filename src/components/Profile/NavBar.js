@@ -17,7 +17,7 @@ function NavBar() {
         to={`/users/${handle}/feed`}
         activeClassName="active"
       >
-        Tweets
+        Bleats
       </StyledLink>
       <StyledLink
         exact

@@ -7,16 +7,49 @@
 
 [View the live demo](https://goat-bleater.herokuapp.com/)
 
+## Features
+
+**_Bleat Your Thoughts_**
+
+<div align='center'>
+  <img src='./assets/screenshots/post_creation.png' alt='Bleat Posting' />
+</div><br>
+
+_Your Bleat will be persist in the back-end!_
+
+**_View Other Bleats From Other Goats_**
+
+<div align='center'>
+  <img src='./assets/screenshots/post_details.png' alt='Bleat Details' height='440px' />
+</div><br>
+
+**_View a Goats Profile_**
+
+<div align='center'>
+  <img src='./assets/screenshots/user_profile.png' alt='Goat Profile' height='500px' />
+</div><br>
+
+**_And All the Bleats From a Goat_**
+
+<div align='center'>
+  <img src='./assets/screenshots/user_feed.png' alt='Bleat Posting' height='440px' />
+</div><br>
+
+**_Like your Favorite Bleats!_**
+
+<div align='center'>
+  <img src='./assets/screenshots/like_bleat.gif' alt='Liking a Bleat' />
+</div>
 
 ### Deploy the project
 
 __Clone the repo to your local machine using the terminal__:
 ```
-$ git clone git@github.com:andrewbaldwin44/project-m4-twitter-clone.git
+$ git clone git@github.com:andrewbaldwin44/Bleater_React_Twitter_Clone.git
 ```
 
 __Install the Dependencies__:
-1. Navigate into the project directory `cd server`
+1. Navigate into the project directory `cd Bleater`
 2. Install the required packages `yarn install`
 3. Start the development server `yarn start`
 
@@ -33,15 +66,15 @@ A folder is provided, `/server`, with the backend code. This is a local server t
 
 __Frontend__:
 
-- React
+- React.js
+- JavaScript
+- Styled Components
+- React Springs
 
 __Backend__:
 
-- Nodejs
+- Node.js
 - Express
-
-
-
 
 ### Author
 
